@@ -1,0 +1,107 @@
+﻿@using HospitalManagmentSystemWebApp.Models
+@model PatientModel
+@{
+    Layout = "~/Views/Shared/_MasterPage.cshtml";
+
+    string message = ViewBag.message;
+    ViewBag.Title = "Save Patient";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Save</title>
+</head>
+<body>
+<div>
+
+
+  
+        @using (@Html.BeginForm())
+        {
+            <table>
+                <tr>
+                    <td>@Html.Label("First Name")</td>
+                    <td>@Html.TextBoxFor(x => x.FirstName)</td>
+                    <td>@Html.ValidationMessageFor(x => x.FirstName)</td>
+                </tr>
+                <tr>
+                    <td>@Html.Label("Last Name")</td>
+                    <td>@Html.TextBoxFor(x => x.LastName)</td>
+                    <td>@Html.ValidationMessageFor(x => x.LastName)</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(x => x.Gender)</td>
+                    <td>
+                        @Html.RadioButton("Gender", "Male"):Male
+                        <br />
+                        @Html.RadioButton("Gender", "Female"): Female
+                        <br />
+                        @Html.RadioButton("Gender", "Other"):Other
+                    </td>
+                    @*<td>
+                            Male  : @Html.RadioButtonFor(m => m.Gender, "Male")
+                            Female :@Html.RadioButtonFor(m => m.Gender, "Female")
+                        </td>*@
+
+                    <td>@Html.ValidationMessageFor(x => x.Gender)</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(x => x.ContactNo)</td>
+                    <td>@Html.TextBoxFor(x => x.ContactNo)</td>
+                    <td>@Html.ValidationMessageFor(x => x.ContactNo)</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(x => x.Age)</td>
+                    <td>@Html.TextBoxFor(x => x.Age)</td>
+                    <td>@Html.ValidationMessageFor(x => x.Age)</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(x => x.Height)</td>
+                    <td>@Html.TextBoxFor(x => x.Height)</td>
+                    <td>@Html.ValidationMessageFor(x => x.Height)</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(x => x.Weight)</td>
+                    <td>@Html.TextBoxFor(x => x.Weight)</td>
+                    <td>@Html.ValidationMessageFor(x => x.Weight)</td>
+                </tr>
+                <tr>
+                    <td>@Html.Label("Birth Date")</td>
+                    <td>@Html.TextBoxFor(x => x.DateOfBirth)</td>
+                    <td>@Html.ValidationMessageFor(x => x.DateOfBirth)</td>
+                </tr>
+                <tr>
+                    <td>@Html.Label("Addmission Date")</td>
+                    <td>@Html.TextBoxFor(x => x.AddmissionDate)</td>
+                    <td>@Html.ValidationMessageFor(x => x.AddmissionDate)</td>
+                </tr>
+               
+                <tr>
+                    <td>
+                        @if (message != null)
+                        {
+                            @message
+                        }
+                    </td>
+                    <td>
+                        <button type="submit" id="docButton"> Save </button>
+                    </td>
+
+                </tr>
+
+            </table>
+
+        }
+
+
+
+
+
+
+
+    </div>
+</body>
+</html>

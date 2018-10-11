@@ -1,0 +1,55 @@
+﻿@using System.ServiceModel.Channels
+@using HospitalManagmentSystemWebApp.Models
+@model LaboratoryModel
+
+
+
+@{
+    Layout = "~/Views/Shared/_MasterPage.cshtml";
+    string message = ViewBag.message;
+    ViewBag.Title = "Save Test";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Save</title>
+</head>
+<body>
+<div>
+
+    @using (@Html.BeginForm())
+    {
+        <table>
+
+            <tr>
+
+                <td>@Html.Label("Test Name")</td>
+                <td>@Html.TextBoxFor(x => x.Name)</td>
+                <td>@Html.ValidationMessageFor(x=>x.Name)</td>
+            </tr>
+            <tr>
+
+                <td>@Html.Label("Test Description")</td>
+                <td>@Html.TextBoxFor(x => x.Description)</td>
+                <td>@Html.ValidationMessageFor(x => x.Description)</td>
+            </tr>
+            <tr>
+
+                <td>@if (message != null)
+                    {
+                        @message
+                    }</td>
+                <td>
+                    <button type="submit" > Save</button>
+
+                </td>
+
+            </tr>
+        </table>
+    }
+</div>
+</body>
+</html>
