@@ -1,0 +1,98 @@
+﻿@using HospitalManagmentSystemWebApp.Models
+@using HospitalManagmentSystemWebApp.Models.ViewModels
+@model DoctorModel
+@{
+    Layout = "~/Views/Shared/_MasterPage.cshtml";
+    
+    List<SpecializationViewModel> spelializationList = ViewBag.specialization;
+    string message = ViewBag.message;
+    ViewBag.Title = "Save Doctor";
+}
+
+<h2>SaveDoctor</h2>
+
+
+<div>
+    @using (@Html.BeginForm())
+    {
+        <table>
+            <tr>
+                <td>@Html.Label("First Name")</td>
+                <td>@Html.TextBoxFor(x => x.FirstName)</td>
+                <td>@Html.ValidationMessageFor(x => x.FirstName)</td>
+            </tr>
+            <tr>
+                <td>@Html.Label("Last Name")</td>
+                <td>@Html.TextBoxFor(x => x.LastName)</td>
+                <td>@Html.ValidationMessageFor(x => x.LastName)</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(x => x.Gender)</td>
+                <td>
+                    @Html.RadioButton("Gender", "Male"):Male
+                   <br/>
+                   @Html.RadioButton("Gender", "Female"): Female
+                    <br/>
+                    @Html.RadioButton("Gender", "Other"):Other
+                </td>
+                @*<td>
+                    Male  : @Html.RadioButtonFor(m => m.Gender, "Male")
+                    Female :@Html.RadioButtonFor(m => m.Gender, "Female")
+                </td>*@
+
+                <td>@Html.ValidationMessageFor(x => x.Gender)</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(x => x.Address)</td>
+                <td>@Html.TextBoxFor(x => x.Address)</td>
+                <td>@Html.ValidationMessageFor(x => x.Address)</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(x => x.Nationality)</td>
+                <td>@Html.TextBoxFor(x => x.Nationality)</td>
+                <td>@Html.ValidationMessageFor(x => x.Nationality)</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(x => x.NID)</td>
+                <td>@Html.TextBoxFor(x => x.NID)</td>
+                <td>@Html.ValidationMessageFor(x => x.NID)</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(x => x.Qualification)</td>
+                <td>@Html.TextBoxFor(x => x.Qualification)</td>
+                <td>@Html.ValidationMessageFor(x => x.Qualification)</td>
+            </tr>
+            <tr>
+                <td>@Html.Label("Date of Join")</td>
+                <td>@Html.TextBoxFor(x => x.DateOfJoining)</td>
+                <td>@Html.ValidationMessageFor(x => x.DateOfJoining)</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(x => x.Specilization)</td>
+                <td>@Html.DropDownListFor(x => x.Specilization, new SelectList(  spelializationList, "Id", "Specialization" ), "--Select--" )</td>
+                <td>@Html.ValidationMessageFor(x => x.Specilization)</td>
+            </tr>
+            <tr>
+                <td>@Html.Label("Available Time")</td>
+                <td>@Html.TextBoxFor(x => x.AvailableTime)</td>
+                <td>@Html.ValidationMessageFor(x => x.AvailableTime)</td>
+            </tr>
+            <tr>
+                <td>
+                    @if (message != null)
+                    {
+                        @message
+                    }
+                </td>
+                <td>
+                    <button type="submit" id="docButton"> Save </button>
+                </td>
+
+            </tr>
+
+        </table>
+
+    }
+
+
+</div>
