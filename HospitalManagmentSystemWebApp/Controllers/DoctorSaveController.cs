@@ -22,9 +22,34 @@ namespace HospitalManagmentSystemWebApp.Controllers
         public ActionResult SaveDoctor(DoctorModel doctor)
         {
             ViewBag.specialization = doctorManager.GetSpecialization();
+
             ViewBag.message = doctorManager.Save(doctor);
 
             return View();
         }
+
+
+
+
+    //---------------------Show Doctor---------------------------------------
+
+        [HttpGet]
+        public ActionResult ShowDoctor()
+        {
+            ViewBag.specialization = doctorManager.GetSpecialization();
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ShowDoctor(int specilizationId)
+        {
+            ViewBag.specialization = doctorManager.GetSpecialization();
+            ViewBag.doctorList = doctorManager.GetAllDoctor(specilizationId);
+
+            return View();
+        }
+        
+
+
 	}
 }

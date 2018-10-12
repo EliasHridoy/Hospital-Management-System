@@ -174,6 +174,7 @@
     <Compile Include="Models\DoctorModel.cs" />
     <Compile Include="Models\LaboratoryModel.cs" />
     <Compile Include="Models\PatientModel.cs" />
+    <Compile Include="Models\ViewModels\DoctorViewModel.cs" />
     <Compile Include="Models\ViewModels\SpecializationViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -214,6 +215,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Patient\Save.cshtml" />
     <Content Include="Views\Laboratory\Save.cshtml" />
+    <Content Include="Views\DoctorSave\ShowDoctor.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

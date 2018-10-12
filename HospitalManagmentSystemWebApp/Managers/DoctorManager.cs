@@ -37,5 +37,14 @@ namespace HospitalManagmentSystemWebApp.Managers
         }
 
 
+
+//----------------show Doctor-------------------------
+
+        public List<DoctorViewModel> GetAllDoctor(int specilizationId)
+        {
+            return doctorGateway.GetAllDoctor(specilizationId);
+        }
+
+
     }
 }

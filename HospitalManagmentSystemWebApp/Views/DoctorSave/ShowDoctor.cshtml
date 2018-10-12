@@ -1,0 +1,95 @@
+﻿@using HospitalManagmentSystemWebApp.Models
+@using HospitalManagmentSystemWebApp.Models.ViewModels
+@model DoctorViewModel
+@{
+    Layout = "~/Views/Shared/_MasterPage.cshtml";
+    List<SpecializationViewModel> spelializationList = ViewBag.specialization;
+    List<DoctorViewModel> doctorList = ViewBag.doctorList;
+    
+    ViewBag.Title = "Show Doctor";
+}
+
+
+
+
+<div>
+    @using (@Html.BeginForm( new { id="doctorform" }))
+{
+
+    <table>
+        <tr>
+
+            <td>@Html.Label("Specialization :") </td>
+            <td>@Html.DropDownList("specilizationId", new SelectList(spelializationList, "Id", "Specialization"), "--Select--")</td>
+            <td><button  onclick="ValidationFuction()" >Search</button></td>
+
+        </tr>
+
+
+        <tr>
+            <td></td>
+            <td> <p id="errorMessage"> </p></td>
+            <td> <p id="errorMessage1"> </p></td>
+        </tr>
+    </table>
+        
+        
+    <table>
+        
+
+        <thead>
+        <tr>
+            <th>Name </th>
+            <th>Specialization</th>
+            <th>Available Time</th>
+
+        </tr>
+        </thead>
+
+        <tbody>
+        @if (doctorList != null)
+        {
+            foreach (DoctorViewModel doctor in doctorList)
+            {
+                <tr>
+                    <td>@doctor.FirstName @doctor.LastName</td>
+                    <td>@doctor.Specialization</td>
+                    <td>@doctor.AvailableTime</td>
+                </tr>
+
+            }
+
+        }
+        </tbody>
+    </table>
+
+
+    }
+    </div>
+
+
+
+<script>
+    function ValidationFuction() {
+        var x, text;
+
+        // Get the value of the input field with id="numb"
+         x = document.forms["doctorform"]["specilizationId"].value;
+
+        // If x is Not a Number or less than one or greater than 10
+         if (isNaN(x) || x < 1) {
+            text = "Input not valid";
+            
+        } else {
+            text = "Input OK";
+            
+        }
+        document.getElementById("errorMessage").innerHTML = text;
+
+        return true;
+    }
+
+        document.getElementById("errorMessage1").innerHTML = "Hello world";
+    
+   
+</script>
