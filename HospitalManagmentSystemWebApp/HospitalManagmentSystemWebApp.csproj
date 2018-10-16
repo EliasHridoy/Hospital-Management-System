@@ -160,20 +160,28 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\DoctorSaveController.cs" />
     <Compile Include="Controllers\LaboratoryController.cs" />
+    <Compile Include="Controllers\NurseController.cs" />
     <Compile Include="Controllers\PatientController.cs" />
+    <Compile Include="Controllers\ReceptionistController.cs" />
     <Compile Include="Gateways\CommonGateway.cs" />
     <Compile Include="Gateways\DoctorGateway.cs" />
     <Compile Include="Gateways\LaboratoryGateway.cs" />
+    <Compile Include="Gateways\NurseGateway.cs" />
     <Compile Include="Gateways\PatientGateway.cs" />
+    <Compile Include="Gateways\ReceptionistGateway.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Managers\DoctorManager.cs" />
     <Compile Include="Managers\LaboratoryManager.cs" />
+    <Compile Include="Managers\NurseManager.cs" />
     <Compile Include="Managers\PatientManager.cs" />
+    <Compile Include="Managers\ReceptionistManager.cs" />
     <Compile Include="Models\DoctorModel.cs" />
     <Compile Include="Models\LaboratoryModel.cs" />
+    <Compile Include="Models\NurseModel.cs" />
     <Compile Include="Models\PatientModel.cs" />
+    <Compile Include="Models\ReceptionistModel.cs" />
     <Compile Include="Models\ViewModels\DoctorViewModel.cs" />
     <Compile Include="Models\ViewModels\SpecializationViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -182,12 +190,35 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Menu\css\component.css" />
+    <Content Include="Content\Menu\css\demo.css" />
+    <Content Include="Content\Menu\css\normalize.css" />
+    <Content Include="Content\Menu\css\styles.css" />
+    <Content Include="Content\Menu\fonts\codropsicons\codropsicons.svg" />
+    <Content Include="Content\Menu\fonts\codropsicons\license.txt" />
+    <Content Include="Content\Menu\fonts\ecoicons\ecoicons.dev.svg" />
+    <Content Include="Content\Menu\fonts\ecoicons\ecoicons.svg" />
+    <Content Include="Content\Menu\fonts\ecoicons\license.txt" />
+    <Content Include="Content\Menu\fonts\ecoicons\Read Me.txt" />
+    <Content Include="Content\Menu\js\classie.js" />
+    <Content Include="Content\Menu\js\gnmenu.js" />
+    <Content Include="Content\Menu\js\modernizr.custom.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\Menu\css\.DS_Store" />
+    <Content Include="Content\Menu\fonts\.DS_Store" />
+    <Content Include="Content\Menu\fonts\codropsicons\.DS_Store" />
+    <Content Include="Content\Menu\fonts\codropsicons\codropsicons.eot" />
+    <Content Include="Content\Menu\fonts\codropsicons\codropsicons.ttf" />
+    <Content Include="Content\Menu\fonts\codropsicons\codropsicons.woff" />
+    <Content Include="Content\Menu\fonts\ecoicons\ecoicons.eot" />
+    <Content Include="Content\Menu\fonts\ecoicons\ecoicons.ttf" />
+    <Content Include="Content\Menu\fonts\ecoicons\ecoicons.woff" />
+    <Content Include="Content\Menu\js\.DS_Store" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -216,6 +247,11 @@
     <Content Include="Views\Patient\Save.cshtml" />
     <Content Include="Views\Laboratory\Save.cshtml" />
     <Content Include="Views\DoctorSave\ShowDoctor.cshtml" />
+    <Content Include="Views\Laboratory\ShowLaboratory.cshtml" />
+    <Content Include="Views\Laboratory\View1.cshtml" />
+    <Content Include="Views\Nurse\SaveNurse.cshtml" />
+    <Content Include="Views\Nurse\ShowNurse.cshtml" />
+    <Content Include="Views\Receptionist\SaveReceptionist.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,52 @@
+﻿@using HospitalManagmentSystemWebApp.Models
+@using HospitalManagmentSystemWebApp.Models.ViewModels
+@model LaboratoryModel
+@{
+    Layout = "~/Views/Shared/_MasterPage.cshtml";
+
+    List<LaboratoryModel> laboratoryList = ViewBag.laboratoryList;
+
+    ViewBag.Title = "Show Doctor";
+}
+
+
+
+
+<div>
+    @using (@Html.BeginForm(new { id = "doctorform", onsubmit = "ValidationFuction()" }))
+    {
+
+        
+        <table>
+
+
+            <thead>
+                <tr>
+                    <th>Name </th>
+                    <th>Description</th>
+                    <th>Price</th>
+
+                </tr>
+            </thead>
+
+            <tbody>
+                @if (laboratoryList != null)
+                {
+                    foreach (LaboratoryModel laboratory in laboratoryList)
+                    {
+                        <tr>
+                            <td>@laboratory.Name </td>
+                            <td>@laboratory.Description</td>
+                            <td>@laboratory.Price</td>
+                            <td>@Html.ActionLink("Edit", "EditLaboratory", new {  })</td>
+                        </tr>
+
+                    }
+
+                }
+            </tbody>
+        </table>
+
+
+    }
+</div>

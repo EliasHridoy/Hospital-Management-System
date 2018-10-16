@@ -13,5 +13,8 @@ namespace HospitalManagmentSystemWebApp.Models
         
         public string Description { get; set; }
 
+        [Required(ErrorMessage = "Enter Price")]
+        public int Price { get; set; }
+
     }
 }

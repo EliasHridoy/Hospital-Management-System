@@ -48,6 +48,24 @@ namespace HospitalManagmentSystemWebApp.Controllers
 
             return View();
         }
+
+
+        //--------------------------Edit-------------------------------
+
+        //[HttpGet]
+        //public ActionResult EditDoctor(int id)
+        //{
+        //    //ViewBag.doctor = doctorManager.GetDoctorById(id);
+        //    View();
+        //}
+        
+        //[HttpPost]
+        //public ActionResult EditDoctor(DoctorModel doctor)
+        //{
+        //    //ViewBag.doctor = doctorManager.Update(doctor);
+
+        //    View();
+        //}
         
 
 

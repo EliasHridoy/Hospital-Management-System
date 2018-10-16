@@ -1,0 +1,52 @@
+﻿@using HospitalManagmentSystemWebApp.Models
+@using HospitalManagmentSystemWebApp.Models.ViewModels
+@model NurseModel
+@{
+    Layout = "~/Views/Shared/_MasterPage.cshtml";
+
+    List<NurseModel> nurseList = ViewBag.nurseList;
+
+    ViewBag.Title = "Show Doctor";
+}
+
+
+
+
+<div>
+    @using (@Html.BeginForm(new {  onsubmit = "ValidationFuction()" }))
+    {
+
+
+        <table border="1px">
+
+
+            <thead>
+                <tr>
+                    <th>Name </th>
+                    <th>Address</th>
+                    <th>NID</th>
+
+                </tr>
+            </thead>
+
+            <tbody>
+                @if (nurseList != null)
+                {
+                    foreach (NurseModel nurse in nurseList)
+                    {
+                        <tr>
+                            <td>@nurse.FirstName @nurse.LastName</td>
+                            <td>@nurse.Address</td>
+                            <td>@nurse.NID</td>
+                            <td>@Html.ActionLink("Edit", "EditDoctor", new { })</td>
+                        </tr>
+
+                    }
+
+                }
+            </tbody>
+        </table>
+
+
+    }
+</div>

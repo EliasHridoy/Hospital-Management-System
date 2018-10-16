@@ -1,4 +1,6 @@
-﻿using System.Data.SqlClient;
+﻿using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
 using HospitalManagmentSystemWebApp.Models;
 
 namespace HospitalManagmentSystemWebApp.Gateways
@@ -31,6 +33,36 @@ namespace HospitalManagmentSystemWebApp.Gateways
             return rowEffect;
 
         }
+
+
+        //-------show Laboratory------------------------------------
+
+        public List<LaboratoryModel> GetAllLaboratory()
+        {
+            query = "SELECT * FROM LaboratoryTable";
+
+            Command = new SqlCommand(query, Connection);
+            List<LaboratoryModel> laboratoryList = new List<LaboratoryModel>();
+
+            Connection.Open();
+            Reader = Command.ExecuteReader();
+
+            while (Reader.Read())
+            {
+                LaboratoryModel laboratory = new LaboratoryModel();
+
+
+                laboratory.Name = Reader["TestName"].ToString();
+                laboratory.Description = Reader["Descriptions"].ToString();
+                laboratory.Price = Convert.ToInt32(Reader["Price"]);
+                
+                laboratoryList.Add(laboratory);
+            }
+            Connection.Close();
+            return laboratoryList;
+        }
+
+
 
 
 

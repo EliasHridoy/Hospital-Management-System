@@ -59,6 +59,7 @@
                     <td>@doctor.FirstName @doctor.LastName</td>
                     <td>@doctor.Specialization</td>
                     <td>@doctor.AvailableTime</td>
+                    <td>@Html.ActionLink("Edit","EditDoctor", new { id = doctor.Id })</td>
                 </tr>
 
             }

@@ -33,5 +33,33 @@ namespace HospitalManagmentSystemWebApp.Controllers
 
             return View();
         }
+
+
+
+        //---------------------Show Laboratory---------------------------------------
+
+        
+        public ActionResult ShowLaboratory()
+        {
+            ViewBag.laboratoryList = laboratoryManager.GetAllLaboratory();
+            return View();
+        }
+ //---------------------Edit Laboratory---------------------------------------
+
+        
+        public ActionResult EditLaboratory()
+        {
+            
+            return View();
+        }
+
+        
+
+
+
+
+
+
+
 	}
 }

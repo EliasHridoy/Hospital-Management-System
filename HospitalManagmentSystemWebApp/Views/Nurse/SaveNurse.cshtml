@@ -1,0 +1,62 @@
+﻿@using HospitalManagmentSystemWebApp.Models
+@using HospitalManagmentSystemWebApp.Models.ViewModels
+@model NurseModel
+@{
+    Layout = "~/Views/Shared/_MasterPage.cshtml";
+   
+    string message = ViewBag.message;
+    ViewBag.Title = "Save Nurse";
+}
+
+<h2>Save  Nurse</h2>
+
+
+<div>
+    @using (@Html.BeginForm())
+    {
+        <table>
+            <tr>
+                <td>@Html.Label("First Name")</td>
+                <td>@Html.TextBoxFor(x => x.FirstName)</td>
+                <td>@Html.ValidationMessageFor(x => x.FirstName)</td>
+            </tr>
+            <tr>
+                <td>@Html.Label("Last Name")</td>
+                <td>@Html.TextBoxFor(x => x.LastName)</td>
+                <td>@Html.ValidationMessageFor(x => x.LastName)</td>
+            </tr>
+            
+            <tr>
+                <td>@Html.LabelFor(x => x.Address)</td>
+                <td>@Html.TextBoxFor(x => x.Address)</td>
+                <td>@Html.ValidationMessageFor(x => x.Address)</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(x => x.NID)</td>
+                <td>@Html.TextBoxFor(x => x.NID)</td>
+                <td>@Html.ValidationMessageFor(x => x.NID)</td>
+            </tr>
+            <tr>
+                <td>@Html.Label("Date of Join")</td>
+                <td>@Html.TextBoxFor(x => x.DateOfJoining)</td>
+                <td>@Html.ValidationMessageFor(x => x.DateOfJoining)</td>
+            </tr>
+            <tr>
+                <td>
+                    @if (message != null)
+                    {
+                        @message
+                    }
+                </td>
+                <td>
+                    <button type="submit" id="docButton"> Save </button>
+                </td>
+
+            </tr>
+
+        </table>
+
+    }
+
+
+</div>

@@ -70,7 +70,7 @@ namespace HospitalManagmentSystemWebApp.Gateways
 //---------------------------Show Doctor------------------------------------
         public List<DoctorViewModel> GetAllDoctor(int specilizationId)
         {
-            query = "SELECT        DoctorTabel.FirstName, DoctorTabel.LastName, " +
+            query = "SELECT     DoctorTabel.Id,   DoctorTabel.FirstName, DoctorTabel.LastName, " +
                     " DoctorTabel.SpecilizationId, DoctorTabel.AvailableTime, " +
                     "SpecializationTable.Specialization "+
 "FROM            DoctorTabel INNER JOIN " +
@@ -87,6 +87,7 @@ namespace HospitalManagmentSystemWebApp.Gateways
             {
                 DoctorViewModel doctor = new DoctorViewModel();
 
+                doctor.Id = Convert.ToInt32(Reader["Id"]);
                 doctor.FirstName = Reader["FirstName"].ToString();
                 doctor.LastName = Reader["LastName"].ToString();
                 doctor.Specialization = Reader["Specialization"].ToString();

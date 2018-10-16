@@ -30,6 +30,13 @@ namespace HospitalManagmentSystemWebApp.Managers
 
 
 
+        //------------------------------------show Laboratory---------------------------
+        public List<LaboratoryModel> GetAllLaboratory()
+        {
+            return laboratoryGateway.GetAllLaboratory();
+        }
+
+
 
     }
 }

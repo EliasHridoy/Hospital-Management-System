@@ -1,0 +1,93 @@
+﻿@using HospitalManagmentSystemWebApp.Models
+@using HospitalManagmentSystemWebApp.Models.ViewModels
+@model ReceptionistModel
+
+@{
+    Layout = "~/Views/Shared/_MasterPage.cshtml";
+
+    string message = ViewBag.message;
+    ViewBag.Title = "Save Receptionist";
+}
+
+<h2>Save  Nurse</h2>
+
+
+<div>
+    @using (@Html.BeginForm())
+    {
+        
+        <table class="table">
+
+
+            @Html.ValidationSummary(true)
+    
+            <tr class="tab-content">
+                <td>@Html.LabelFor(model => model.FirstName, new { @class = "control-label col-md-2" })</td>
+                <td >
+                    @Html.EditorFor(model => model.FirstName)
+                    <td>@Html.ValidationMessageFor(model => model.FirstName)</td>
+
+
+            </tr>
+    
+            <tr >
+              <td>  @Html.LabelFor(model => model.LastName, new { @class = "control-label col-md-2" })</td>
+                <td >
+                    @Html.EditorFor(model => model.LastName)
+                    @Html.ValidationMessageFor(model => model.LastName)
+                </td>
+            </tr>
+    
+            <tr >
+               <td> @Html.LabelFor(model => model.Address, new { @class = "control-label col-md-2" })</td>
+                <td >
+                    @Html.EditorFor(model => model.Address)
+                </td>
+                <td> @Html.ValidationMessageFor(model => model.Address)</td>
+                
+            </tr>
+    
+            <tr>
+               <td> @Html.LabelFor(model => model.Qualification, new { @class = "control-label col-md-2" })</td>
+                <td >
+                    @Html.EditorFor(model => model.Qualification)</td>
+                   <td> @Html.ValidationMessageFor(model => model.Qualification)
+                </td>
+            </tr>
+    
+            <tr>
+               <td> @Html.LabelFor(model => model.BloodGroup, new { @class = "control-label col-md-2" })</td>
+                <td >
+                    @Html.EditorFor(model => model.BloodGroup)</td>
+                <td> @Html.ValidationMessageFor(model => model.BloodGroup)
+                </td>
+            </tr>
+    
+            <tr >
+               <td> @Html.LabelFor(model => model.NID, new { @class = "control-label col-md-2" })</td>
+                <td >
+                    @Html.EditorFor(model => model.NID)</td>
+                  <td>  @Html.ValidationMessageFor(model => model.NID)
+                </td>
+            </tr>
+    
+            <tr >
+               <td> @Html.LabelFor(model => model.Age, new { @class = "control-label col-md-2" })</td>
+                <td >
+                    @Html.EditorFor(model => model.Age)</td>
+                  <td>  @Html.ValidationMessageFor(model => model.Age)
+                </td>
+            </tr>
+
+            <tr >
+                <td>@ViewBag.message</td>
+                <td >
+                    <input type="submit" value="Create" class="btn-default"/>
+                </td>
+            </tr>
+        </table>
+
+    }
+
+
+</div>

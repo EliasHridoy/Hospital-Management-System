@@ -38,6 +38,12 @@
             </tr>
             <tr>
 
+                <td>@Html.Label("Test Price")</td>
+                <td>@Html.TextBoxFor(x => x.Price)</td>
+                <td>@Html.ValidationMessageFor(x => x.Price)</td>
+            </tr>
+            <tr>
+
                 <td>@if (message != null)
                     {
                         @message

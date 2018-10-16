@@ -5,19 +5,79 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
+
+    <link rel="stylesheet" type="text/css" href="~/Content/Menu/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/Menu/css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/Menu/css/component.css"/>
+    <link href="~/Content/Menu/css/styles.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+    <script src="~/Content/Menu/js/modernizr.custom.js"></script>
+    
+
+
 </head>
 <body>
-<div align="center">
-    <h2>@ViewBag.Title </h2>
-</div>
+
+
+
+    <div class="container">
+        <ul id="gn-menu" class="gn-menu-main">
+            <li class="gn-trigger">
+                <a class="gn-icon gn-icon-menu"><span>Menu</span></a>
+                <nav class="gn-menu-wrapper">
+                    <div class="gn-scroller">
+                        <ul class="gn-menu">
+                            <li class="gn-search-item">
+                                <input placeholder="Search" type="search" class="gn-search">
+                                <a class="gn-icon gn-icon-search"><span>Search</span></a>
+                            </li>
+                            <li>
+                                <a class="has-sub">Doctor</a>
+                                <ul>
+                                    <li><a >New Doctor</a></li>
+                                    <li><a class="last">View Doctor</a></li>
+                                </ul>
+                            </li>
+                            <li><a class="gn-icon gn-icon-cog">Settings</a></li>
+                            <li><a class="gn-icon gn-icon-help">Help</a></li>
+                            <li>
+                                <a class="gn-icon gn-icon-archive">Archives</a>
+                                <ul class="gn-submenu">
+                                    <li><a class="gn-icon gn-icon-article">Articles</a></li>
+                                    <li><a class="gn-icon gn-icon-pictures">Images</a></li>
+                                    <li><a class="gn-icon gn-icon-videos">Videos</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div><!-- /gn-scroller -->
+                </nav>
+            </li>
+            <li><a href="#">Codrops</a></li>
+            <li><a class="codrops-icon codrops-icon-prev" href="#"><span>Previous Demo</span></a></li>
+            <li><a class="codrops-icon codrops-icon-drop" href="#"><span>Back to the Codrops Article</span></a></li>
+        </ul>
+
+</div><!-- /container -->
+
+
 <div align="center">
     @RenderBody()
 </div>
 
 
-    <script src="~/Scripts/jquery-1.10.2.js"></script>
-    <script src="~/Scripts/jquery.validate.js"></script>
-    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+
+    @*------Nav bar--------*@
+    <script src="~/Content/Menu/js/classie.js"></script>
+    <script src="~/Content/Menu/js/gnmenu.js"></script>
+    <script>
+        new gnMenu(document.getElementById('gn-menu'));
+    </script>
+    @*------Nav bar-------*@
 
 
 </body>
