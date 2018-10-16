@@ -13,16 +13,20 @@
 
 
 <div>
-    @using (@Html.BeginForm( new { id="doctorform" }))
+    @using (@Html.BeginForm( new { id="doctorform" , onsubmit ="ValidationFuction()" }))
 {
 
     <table>
         <tr>
 
             <td>@Html.Label("Specialization :") </td>
-            <td>@Html.DropDownList("specilizationId", new SelectList(spelializationList, "Id", "Specialization"), "--Select--")</td>
-            <td><button  onclick="ValidationFuction()" >Search</button></td>
+            <td>@Html.DropDownList("Specilization", new SelectList(spelializationList, "Id", "Specialization"), "--Select--")</td>
+            <td><button type="submit">Search</button></td>
 
+        </tr>
+        <tr>
+            <td></td>
+            <td>@Html.ValidationMessage("Specilization")</td>
         </tr>
 
 
@@ -67,29 +71,3 @@
     }
     </div>
 
-
-
-<script>
-    function ValidationFuction() {
-        var x, text;
-
-        // Get the value of the input field with id="numb"
-         x = document.forms["doctorform"]["specilizationId"].value;
-
-        // If x is Not a Number or less than one or greater than 10
-         if (isNaN(x) || x < 1) {
-            text = "Input not valid";
-            
-        } else {
-            text = "Input OK";
-            
-        }
-        document.getElementById("errorMessage").innerHTML = text;
-
-        return true;
-    }
-
-        document.getElementById("errorMessage1").innerHTML = "Hello world";
-    
-   
-</script>

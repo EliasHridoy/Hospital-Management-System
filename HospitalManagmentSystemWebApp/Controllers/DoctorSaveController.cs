@@ -41,10 +41,10 @@ namespace HospitalManagmentSystemWebApp.Controllers
         }
 
         [HttpPost]
-        public ActionResult ShowDoctor(int specilizationId)
+        public ActionResult ShowDoctor(DoctorModel doctor)
         {
             ViewBag.specialization = doctorManager.GetSpecialization();
-            ViewBag.doctorList = doctorManager.GetAllDoctor(specilizationId);
+            ViewBag.doctorList = doctorManager.GetAllDoctor(doctor.Specilization);
 
             return View();
         }
