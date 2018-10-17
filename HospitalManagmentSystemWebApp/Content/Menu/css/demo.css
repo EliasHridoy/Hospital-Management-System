@@ -21,9 +21,10 @@ body {
 }
 
 .container > header {
-	margin: 0 auto;
-	padding: 12em 2em;
-	padding-left: 370px;
+	margin: 2px auto;
+	padding: 50px 50px ;
+    padding-top: 70px ;
+    padding-left: 470px ;
 	background: rgba(0,0,0,0.05);
 }
 
@@ -50,6 +51,20 @@ body {
 	color: #74818e;
 	padding: 0 0 0.6em 0.1em;
 }
+
+
+/*----------------------------------*/
+
+
+.divContent {
+	margin: 5px auto;
+	padding: 100px 100px ;
+    padding-top: 25px;
+    
+}
+
+/*----------------------------------*/
+
 
 /* To Navigation Style */
 .codrops-top {

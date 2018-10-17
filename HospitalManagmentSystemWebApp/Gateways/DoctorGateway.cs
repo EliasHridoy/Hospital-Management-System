@@ -13,7 +13,7 @@ namespace HospitalManagmentSystemWebApp.Gateways
 
         public int Save(DoctorModel doctor)
         {
-            query = "INSERT INTO DoctorTabel " +
+            query = "INSERT INTO DoctorTable " +
                 "VALUES(@firstName,@lastName,@gender,@address,@nationality," +
                     "@qalification,@dateOfJoining,@specialization,@NID,@availableTime ) ";
 
@@ -70,11 +70,11 @@ namespace HospitalManagmentSystemWebApp.Gateways
 //---------------------------Show Doctor------------------------------------
         public List<DoctorViewModel> GetAllDoctor(int specilizationId)
         {
-            query = "SELECT     DoctorTabel.Id,   DoctorTabel.FirstName, DoctorTabel.LastName, " +
-                    " DoctorTabel.SpecilizationId, DoctorTabel.AvailableTime, " +
+            query = "SELECT     DoctorTable.Id,   DoctorTable.FirstName, DoctorTable.LastName, " +
+                    " DoctorTable.SpecilizationId, DoctorTable.AvailableTime, " +
                     "SpecializationTable.Specialization "+
-"FROM            DoctorTabel INNER JOIN " +
-                         " SpecializationTable ON DoctorTabel.SpecilizationId = SpecializationTable.Id "+
+"FROM            DoctorTable INNER JOIN " +
+                         " SpecializationTable ON DoctorTable.SpecilizationId = SpecializationTable.Id " +
 						  " where SpecializationTable.Id="+specilizationId ;
 
             Command = new SqlCommand(query,Connection);

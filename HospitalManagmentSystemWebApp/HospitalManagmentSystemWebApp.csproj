@@ -158,11 +158,13 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AppointmentController.cs" />
     <Compile Include="Controllers\DoctorSaveController.cs" />
     <Compile Include="Controllers\LaboratoryController.cs" />
     <Compile Include="Controllers\NurseController.cs" />
     <Compile Include="Controllers\PatientController.cs" />
     <Compile Include="Controllers\ReceptionistController.cs" />
+    <Compile Include="Gateways\AppointmentGateway.cs" />
     <Compile Include="Gateways\CommonGateway.cs" />
     <Compile Include="Gateways\DoctorGateway.cs" />
     <Compile Include="Gateways\LaboratoryGateway.cs" />
@@ -172,11 +174,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Managers\AppointmentManager.cs" />
     <Compile Include="Managers\DoctorManager.cs" />
     <Compile Include="Managers\LaboratoryManager.cs" />
     <Compile Include="Managers\NurseManager.cs" />
     <Compile Include="Managers\PatientManager.cs" />
     <Compile Include="Managers\ReceptionistManager.cs" />
+    <Compile Include="Models\AppointmentScheduleModel.cs" />
     <Compile Include="Models\DoctorModel.cs" />
     <Compile Include="Models\LaboratoryModel.cs" />
     <Compile Include="Models\NurseModel.cs" />
@@ -188,6 +192,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-timepicker.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Menu\css\component.css" />
@@ -207,6 +212,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap-datepicker.min.js" />
+    <Content Include="Scripts\bootstrap-timepicker.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\Menu\css\.DS_Store" />
@@ -219,6 +226,8 @@
     <Content Include="Content\Menu\fonts\ecoicons\ecoicons.ttf" />
     <Content Include="Content\Menu\fonts\ecoicons\ecoicons.woff" />
     <Content Include="Content\Menu\js\.DS_Store" />
+    <Content Include="Content\bootstrap-datepicker3.min.css" />
+    <Content Include="Content\timepicker.less" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -252,6 +261,7 @@
     <Content Include="Views\Nurse\SaveNurse.cshtml" />
     <Content Include="Views\Nurse\ShowNurse.cshtml" />
     <Content Include="Views\Receptionist\SaveReceptionist.cshtml" />
+    <Content Include="Views\Appointment\Appointment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

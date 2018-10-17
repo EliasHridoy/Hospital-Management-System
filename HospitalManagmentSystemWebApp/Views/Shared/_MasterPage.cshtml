@@ -10,10 +10,15 @@
     <link rel="stylesheet" type="text/css" href="~/Content/Menu/css/demo.css" />
     <link rel="stylesheet" type="text/css" href="~/Content/Menu/css/component.css"/>
     <link href="~/Content/Menu/css/styles.css" rel="stylesheet" />
-    <script src="~/Scripts/bootstrap.min.js"></script>
-
     <script src="~/Content/Menu/js/modernizr.custom.js"></script>
-    
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <link href="~/Content/bootstrap-timepicker.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <link href="~/Content/bootstrap-datepicker3.min.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap-datepicker.min.js"></script>
+    <script src="~/Scripts/bootstrap-timepicker.min.js"></script>
 
 
 </head>
@@ -35,7 +40,7 @@
                             <li>
                                 <a class="has-sub">Doctor</a>
                                 <ul>
-                                    <li><a >New Doctor</a></li>
+                                    <li><a>New Doctor</a></li>
                                     <li><a class="last">View Doctor</a></li>
                                 </ul>
                             </li>
@@ -58,17 +63,22 @@
             <li><a class="codrops-icon codrops-icon-drop" href="#"><span>Back to the Codrops Article</span></a></li>
         </ul>
 
-</div><!-- /container -->
+        
+            <header>
+                <h1>@ViewBag.Title</h1>
+            </header>
+        
+    </div><!-- /container -->
+
+    <div align="center" class="divContent">
+        @RenderBody()
+    </div>
+
+   
 
 
-<div align="center">
-    @RenderBody()
-</div>
-
-
-<script src="~/Scripts/jquery-1.10.2.js"></script>
-<script src="~/Scripts/jquery.validate.js"></script>
-<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 
 
     @*------Nav bar--------*@

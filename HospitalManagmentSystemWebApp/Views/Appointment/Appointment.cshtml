@@ -1,0 +1,172 @@
+﻿@using System.Web.UI.WebControls
+@using HospitalManagmentSystemWebApp.Models
+@using HospitalManagmentSystemWebApp.Models.ViewModels
+
+@model AppointmentScheduleModel
+
+@{
+    Layout = "~/Views/Shared/_MasterPage.cshtml";
+    //Layout = null;
+    ViewBag.Title = "Appointment";
+
+    List<DoctorViewModel> doctorList = ViewBag.doctorList;
+    List<SpecializationViewModel> specializationList = ViewBag.specialization;
+
+}
+
+@*<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Appointment</title>
+
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <link href="~/Content/bootstrap-timepicker.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <link href="~/Content/bootstrap-datepicker3.min.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap-datepicker.min.js"></script>
+    <script src="~/Scripts/bootstrap-timepicker.min.js"></script>*@
+
+
+
+
+    @*<style>
+
+        .datepicker-dropdown {
+            top: 0;
+            left: 0;
+            padding: 4px;
+            background-color: #2C6E8E;
+            border-radius: 10px;
+        }
+
+
+        .datepicker table tr td,
+        .datepicker table tr th {
+            text-align: center;
+            width: 30px;
+            height: 30px;
+            border-radius: 4px;
+            border: none;
+            color: #FFFFFF;
+        }
+    </style>*@
+
+
+@*</head>
+
+
+
+
+<body>*@
+<div>
+
+
+
+
+    <style>
+        .datepicker-dropdown {
+            top: 0;
+            left: 0;
+            padding: 4px;
+            background-color: #2C6E8E;
+            border-radius: 10px;
+        }
+
+
+        .datepicker table tr td,
+        .datepicker table tr th {
+            text-align: center;
+            width: 30px;
+            height: 30px;
+            border-radius: 4px;
+            border: none;
+            color: #FFFFFF;
+        }
+    </style>
+
+
+
+
+    @using (Html.BeginForm())
+    {
+        <table>
+            <tr>
+                <td>@Html.Label("Specialization(Optional)")</td>
+                <td>@Html.DropDownList("Specializatin", new SelectList(specializationList, "Id", "Specialization"), "--Select--")</td>
+                <td>@Html.ValidationMessage("Specialization", new {@class = "text-warning"})</td>
+            </tr>
+
+            <tr>
+                <td>@Html.Label("Doctor")</td>
+                <td>@Html.DropDownListFor(x => x.DoctorId, new SelectList(doctorList, "Id", "FirstName", "LastName"), "--Select--", "")</td>
+                <td>@Html.ValidationMessage("DoctorId")</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(x => x.AppointmentDate)</td>
+                <td>
+                    <div class="input-group date" id="Date">
+                        @*<input type="text" id="AppointmentDate" name="AppointmentDate" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>*@
+
+                        @Html.TextBoxFor(x => x.AppointmentDate, new {@class = "form-control"})<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                    </div>
+
+                </td>
+                <td>@Html.ValidationMessage("AppointmentDate") </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(x => x.AppointmentTime)</td>
+                <td>
+                    <div class="input-group bootstrap-timepicker timepicker">
+                        @*<input id="AppointmentTime" name="AppointmentTime" type="text" class="form-control input-small">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>*@
+
+
+                        @Html.TextBoxFor(x => x.AppointmentTime, new {@class = "form-control input-small "})<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+                    </div>
+                </td>
+
+
+                <td>@Html.ValidationMessageFor(x => x.AppointmentTime)</td>
+            </tr>
+            <tr>
+                <td>@ViewBag.message</td>
+                <td>
+                    <input type="submit" value="Appoint"/>
+                </td>
+            </tr>
+
+        </table>
+    }
+
+
+
+
+</div>
+
+
+    <script type='text/javascript'>
+        $(function () {
+            $('#Date').datepicker({
+                calendarWeeks: true,
+                todayHighlight: true,
+                autoclose: true
+            });
+        });
+
+
+        $('#AppointmentTime').timepicker();
+
+    </script>
+
+
+
+
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+@*</body>
+</html>*@
