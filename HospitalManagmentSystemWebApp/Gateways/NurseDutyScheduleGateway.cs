@@ -15,7 +15,7 @@ namespace HospitalManagmentSystemWebApp.Gateways
 
         public int Save(NurseDutyScheduleModel nurseDuty)
         {
-            query = "INSERT INTO NurseDutyScheduleModel VALUES(  '"+ nurseDuty.NurseId+"', '"+nurseDuty.Date+"', '"+nurseDuty.ShiftId+"'   )";
+            query = "INSERT INTO NurseDutyScheduleTable VALUES(  '"+ nurseDuty.NurseId+"', '"+nurseDuty.Date+"', '"+nurseDuty.ShiftId+"'   )";
 
             Command = new SqlCommand(query,Connection);
 
