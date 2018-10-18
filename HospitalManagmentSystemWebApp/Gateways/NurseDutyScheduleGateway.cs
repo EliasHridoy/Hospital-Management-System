@@ -81,6 +81,68 @@ namespace HospitalManagmentSystemWebApp.Gateways
                     return shiftList;
                 }
 
+                //------------------------------------Nurse Duty View-------------------------------
+        public List<NurseDutyViewModel> ViewNurseDuty(string date,int shiftId=0)
+        {
+            if (shiftId <= 0)
+            {
+                query = "SELECT * FROM NurseDutyView where Date = '"+date+"'  ";
+            }
+            else
+            {
+                query = "SELECT * FROM NurseDutyView where Date = '" + date + "' and shiftId= "+shiftId;
+            }
+
+            Command = new SqlCommand(query,Connection);
+
+
+            List<NurseDutyViewModel> nurseDutyList = new List<NurseDutyViewModel>();
+
+            Connection.Open();
+            Reader = Command.ExecuteReader();
+            while (Reader.Read())
+            {
+                NurseDutyViewModel nurse = new NurseDutyViewModel();
+
+                nurse.Name = Reader["FirstName"] + " " + Reader["LastName"];
+                nurse.Date = Reader["Date"].ToString();
+                string shiftStart = Reader["ShiftStart"].ToString();
+                string shiftEnd = Reader["ShiftEnd"].ToString();
+                // 14:00:00 To 22:00:00 
+
+                int hour = Convert.ToInt32(shiftStart.Substring(0, 2));
+                if (hour > 12)
+                {
+                    hour -= 12;
+                    shiftStart = shiftStart.Remove(0, 2);
+                    shiftStart = hour + shiftStart + " PM";
+                }
+                else
+                {
+                    shiftStart += " AM";
+                }
+                hour = Convert.ToInt32(shiftEnd.Substring(0, 2));
+                if (hour > 12)
+                {
+                    hour -= 12;
+                    shiftEnd = shiftEnd.Remove(0, 2);
+                    shiftEnd = hour + shiftEnd + " PM";
+
+                    nurse.Shift = shiftStart + " To " + shiftEnd;
+
+                }
+                else
+                {
+                    shiftEnd += " AM";
+                }
+
+
+                nurseDutyList.Add(nurse);
+            }
+            Connection.Close();
+
+            return nurseDutyList;
+        } 
                 //----------------------------------------------------------------------------------
 
     }

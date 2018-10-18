@@ -33,5 +33,10 @@ namespace HospitalManagmentSystemWebApp.Managers
             return nurseDutyScheduleGateway.GetAllShift();
         }
 
+        public List<NurseDutyViewModel> ViewNurseDuty(string date, int shiftId = 0)
+        {
+            return nurseDutyScheduleGateway.ViewNurseDuty(date, shiftId);
+        }
+
     }
 }

@@ -1,0 +1,124 @@
+﻿@using HospitalManagmentSystemWebApp.Models.ViewModels
+@model IEnumerable<HospitalManagmentSystemWebApp.Models.ViewModels.NurseDutyViewModel>
+
+@{
+    ViewBag.Title = "ViewNurseDuty";
+    Layout = "~/Views/Shared/_MasterPage.cshtml";
+
+    List<ShiftViewModel> shiftList = ViewBag.shiftList;
+    List<NurseDutyViewModel> Model = ViewBag.nurseDutyList;
+}
+
+<h2>ViewNurseDuty</h2>
+
+
+
+<p>
+    @Html.ActionLink("Create New", "Save")
+</p>
+@using (Html.BeginForm("myForm"))
+{
+    <table>
+        <tr>
+            <td>@Html.Label("Date")</td>
+            <td>@Html.TextBox("Date")</td>
+            <td>@Html.Label("", new {id="ValidationMessage"})</td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Shift")</td>
+            <td>@Html.DropDownList("shiftId", new SelectList(shiftList, "Id", "ShiftName"), "--Select", "")</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" id="submitButton" value="Search" />
+            </td>
+            <td></td>
+        </tr>
+    </table>
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Shift)
+        </th>
+        <th></th>
+    </tr>
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Shift)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new {/* id=item.PrimaryKey */}) |
+                    @Html.ActionLink("Details", "Details", new {/* id=item.PrimaryKey */}) |
+                    @Html.ActionLink("Delete", "Delete", new {/* id=item.PrimaryKey */})
+                </td>
+            </tr>
+        }
+    }
+
+</table>
+
+
+
+
+
+
+
+
+<style>
+    .datepicker-dropdown {
+        top: 0;
+        left: 0;
+        padding: 4px;
+        background-color: #2C6E8E;
+        border-radius: 10px;
+    }
+
+
+    .datepicker table tr td,
+    .datepicker table tr th {
+        text-align: center;
+        width: 30px;
+        height: 30px;
+        border-radius: 4px;
+        border: none;
+        color: #FFFFFF;
+    }
+</style>
+
+
+
+
+
+
+
+
+<script type='text/javascript'>
+    $(function() {
+        $('#Date').datepicker({
+            calendarWeeks: true,
+            todayHighlight: true,
+            autoclose: true
+        });
+    });
+
+
+</Script>

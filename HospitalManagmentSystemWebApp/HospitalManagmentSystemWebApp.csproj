@@ -193,6 +193,7 @@
     <Compile Include="Models\ReceptionistDutyModel.cs" />
     <Compile Include="Models\ReceptionistModel.cs" />
     <Compile Include="Models\ViewModels\DoctorViewModel.cs" />
+    <Compile Include="Models\ViewModels\NurseDutyViewModel.cs" />
     <Compile Include="Models\ViewModels\NurseViewModel.cs" />
     <Compile Include="Models\ViewModels\ReceptionistViewModel.cs" />
     <Compile Include="Models\ViewModels\ShiftViewModel.cs" />
@@ -273,6 +274,7 @@
     <Content Include="Views\Appointment\Appointment.cshtml" />
     <Content Include="Views\NurseDuty\Save.cshtml" />
     <Content Include="Views\ReceptionistDuty\DutySave.cshtml" />
+    <Content Include="Views\NurseDuty\ViewNurseDuty.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
