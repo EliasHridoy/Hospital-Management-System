@@ -62,6 +62,8 @@
 
 
 <body>*@
+
+
 <div>
 
 
@@ -91,38 +93,53 @@
 
 
 
-    @using (Html.BeginForm())
+    @using (Html.BeginForm( new {id = "myForm"}))
     {
         <table>
-            <tr>
-                <td>@Html.Label("Specialization(Optional)")</td>
-                <td>@Html.DropDownList("Specializatin", new SelectList(specializationList, "Id", "Specialization"), "--Select--")</td>
-                <td>@Html.ValidationMessage("Specialization", new {@class = "text-warning"})</td>
-            </tr>
 
-            <tr>
-                <td>@Html.Label("Doctor")</td>
-                <td>@Html.DropDownListFor(x => x.DoctorId, new SelectList(doctorList, "Id", "FirstName", "LastName"), "--Select--", "")</td>
-                <td>@Html.ValidationMessage("DoctorId")</td>
-            </tr>
             <tr>
                 <td>@Html.LabelFor(x => x.AppointmentDate)</td>
                 <td>
                     <div class="input-group date" id="Date">
                         @*<input type="text" id="AppointmentDate" name="AppointmentDate" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>*@
 
-                        @Html.TextBoxFor(x => x.AppointmentDate, new {@class = "form-control"})<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                        @Html.TextBoxFor(x => x.AppointmentDate, new { @class = "form-control" })<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
                     </div>
 
                 </td>
                 <td>@Html.ValidationMessage("AppointmentDate") </td>
             </tr>
             <tr>
+                <td>@Html.Label("Specialization(Optional)")</td>
+                <td>@Html.DropDownList("Specialization", new SelectList(specializationList, "Id", "Specialization"), "--Select--")</td>
+                <td>@Html.ValidationMessage("Specialization", new { @class = "text-warning" })</td>
+            </tr>
+
+            <tr>
+                <td>@Html.Label("Doctor")</td>
+                <td>@Html.DropDownListFor(x => x.DoctorId, new SelectList(doctorList, "Id", "Name"), "--Select--", "")</td>
+                <td>@Html.ValidationMessage("DoctorId")</td>
+            </tr>
+
+            <tr>
+                <td>@Html.Label("Maximum Appointment")</td>
+                <td>@Html.TextBox("MaximumAppointment","", new { @readonly = true })</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>@Html.Label("Remaining Appointment")</td>
+                <td>@Html.TextBox("RemainingAppointment", "",new { @readonly = true })</td>
+                <td></td>
+            </tr>
+
+
+            @*<tr>
                 <td>@Html.LabelFor(x => x.AppointmentTime)</td>
                 <td>
                     <div class="input-group bootstrap-timepicker timepicker">
-                        @*<input id="AppointmentTime" name="AppointmentTime" type="text" class="form-control input-small">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>*@
+                        <input id="AppointmentTime" name="AppointmentTime" type="text" class="form-control input-small">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
 
 
                         @Html.TextBoxFor(x => x.AppointmentTime, new {@class = "form-control input-small "})<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
@@ -131,11 +148,24 @@
 
 
                 <td>@Html.ValidationMessageFor(x => x.AppointmentTime)</td>
+            </tr>*@
+
+
+            <tr>
+                <td>@Html.LabelFor(x => x.AppointmentNo)</td>
+                <td>@Html.TextBoxFor(x => x.AppointmentNo, new{ @readonly=true})</td>
+                <td>@Html.ValidationMessageFor(x => x.AppointmentNo)</td>
+            </tr>
+
+            <tr>
+                <td>@Html.LabelFor(x => x.ContactNo)</td>
+                <td>@Html.TextBoxFor(x => x.ContactNo)</td>
+                <td>@Html.ValidationMessageFor(x => x.ContactNo)</td>
             </tr>
             <tr>
                 <td>@ViewBag.message</td>
                 <td>
-                    <input type="submit" value="Appoint"/>
+                    <input type="submit" id="submitButton" value="Appoint"/>
                 </td>
             </tr>
 
@@ -160,12 +190,141 @@
 
         $('#AppointmentTime').timepicker();
 
+        
+       
+       
+
+
+
+
     </script>
 
 
 
 
-    <script src="~/Scripts/jquery.validate.min.js"></script>
+
+<script>
+
+    ///------------------------doctorById-------------------------------
+    $(document).ready(function() {
+
+        $('#DoctorId').change(function() {
+
+            var doctorID = $('#DoctorId').val();
+            var date = $('#AppointmentDate').val();
+
+            if (date == "") {
+
+               
+                $('#AppointmentDate').val("Please Select date");
+
+                setTimeout(
+                    function() {
+
+                        location.reload();
+                    }, 1000);
+
+            }else{
+
+                var json = { doctorId: doctorID, date: date };
+
+                $.ajax({
+                    type: "POST",
+
+                    url: '@Url.Action("GetDoctorById", "Appointment")',
+                    //url: '/Department/GetStudentsByDepartmentId',
+
+                    contentType: "application/json; charset=utf-8",
+
+                    data: JSON.stringify(json),
+
+                    success: function (data) {
+                    
+                    
+
+                        $("#MaximumAppointment").val(data.MaximumAppointment);
+                        $("#RemainingAppointment").val(data.RemainingAppointment);
+
+                        $("#AppointmentNo").val(data.MaximumAppointment - data.RemainingAppointment + 1);
+
+                    }
+                });
+            }
+
+        });
+    });
+
+
+    ///------------------------doctorBySpecialization-------------------------------
+
+    $(document).ready(function () {
+
+        $('#Specialization').change(function () {
+
+            var specialization = $('#Specialization').val();
+
+            
+
+            var json = { specializationId: specialization };
+
+            $.ajax({
+                type: "POST",
+
+                url: '@Url.Action("GetDoctorBySpecilization", "Appointment")',
+                //url: '/Department/GetStudentsByDepartmentId',
+
+                contentType: "application/json; charset=utf-8",
+
+                data: JSON.stringify(json),
+
+                success: function (data) {
+
+
+                    $("#DoctorId").empty();
+
+                    $("#DoctorId").append( '<option value="" >--Select Doc--</option>');
+
+
+                    $.each(data, function(key, value) {
+                        $("#DoctorId").append('<option value= ' + value.Id + ' >' + value.Name + '</option>');
+                            
+                    });
+
+
+                }
+            });
+            
+
+        });
+    });
+
+
+
+
+    ///------------------------Reloading page on Date change-------------------------------
+
+
+    $(document).ready(function() {
+
+        $('#AppointmentDate').change(function() {
+
+            $('#DoctorId option:eq(0)').attr('selected', 'selected'); // Select first option
+            $('#MaximumAppointment').val('');
+            $('#RemainingAppointment').val('');
+            $('#AppointmentNo').val('');
+
+        });
+    });
+
+       
+
+
+</script>
+
+
+
+
+<script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 
 @*</body>

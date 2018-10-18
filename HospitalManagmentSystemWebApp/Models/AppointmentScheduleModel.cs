@@ -14,7 +14,13 @@ namespace HospitalManagmentSystemWebApp.Models
         [Required(ErrorMessage = "Please Select Date")]
         public string AppointmentDate { get; set; }
 
-        [Required(ErrorMessage = "Please Select Time")]
-        public string AppointmentTime { get; set; }
+        //[Required(ErrorMessage = "Please Select Time")]
+        //public string AppointmentTime { get; set; }
+
+        [Required(ErrorMessage = "Please Patient Contact No.")]
+        public string ContactNo { get; set; }
+    
+        public int AppointmentNo { get; set; }
+
     }
 }

@@ -31,6 +31,9 @@ namespace HospitalManagmentSystemWebApp.Models
         public int NID { get; set; }
         [Required(ErrorMessage = "Please Enter Time")]
         public TimeSpan AvailableTime { get; set; }
+        
+        [Required(ErrorMessage = "Please Enter Maximum Appointment ")]
+        public int MaximumAppointment { get; set; }
 
     }
 }

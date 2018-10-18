@@ -15,7 +15,7 @@ namespace HospitalManagmentSystemWebApp.Gateways
         {
 
             query = "INSERT INTO AppointmentScheduleTable VALUES('" + appointment.DoctorId + "' , '" +
-                    appointment.AppointmentDate + "', '" + appointment.AppointmentTime + "') ";
+                    appointment.AppointmentDate + "', '" + appointment.AppointmentNo + "' , '"+appointment.ContactNo+"') ";
 
             Command = new SqlCommand(query, Connection);
             
@@ -43,8 +43,7 @@ namespace HospitalManagmentSystemWebApp.Gateways
             {
                 DoctorViewModel doctor = new DoctorViewModel();
                 doctor.Id = Convert.ToInt32(Reader["Id"]);
-                doctor.FirstName = Reader["FirstName"].ToString();
-                doctor.LastName = Reader["LastName"].ToString();
+                doctor.Name = Reader["FirstName"].ToString() +" "+ Reader["LastName"].ToString();
                 
 
                 doctorList.Add(doctor);
@@ -53,7 +52,63 @@ namespace HospitalManagmentSystemWebApp.Gateways
             Connection.Close();
 
             return doctorList;
-        } 
+        }
+        public List<DoctorViewModel> GetDoctorBySpecilization(int specializationId)
+        {
+            query = "SELECT * FROM DoctorTable WHERE SpecilizationId="+specializationId;
+
+            Command  = new SqlCommand(query, Connection);
+
+            List<DoctorViewModel> doctorList = new List<DoctorViewModel>();
+
+            Connection.Open();
+            Reader = Command.ExecuteReader();
+            while (Reader.Read())
+            {
+                DoctorViewModel doctor = new DoctorViewModel();
+                doctor.Id = Convert.ToInt32(Reader["Id"]);
+                doctor.Name = Reader["FirstName"].ToString() +" "+ Reader["LastName"].ToString();
+                
+
+                doctorList.Add(doctor);
+
+            }
+            Connection.Close();
+
+            return doctorList;
+        }
+
+
+
+        public DoctorViewModel GetDoctorById(int doctorId, string date)
+        {
+
+            query = "SELECT * FROM DoctorTable WHERE Id=" + doctorId ;
+
+            Command = new SqlCommand(query,Connection);
+            DoctorViewModel doctor = new DoctorViewModel();
+            
+            Connection.Open();
+            Reader = Command.ExecuteReader();
+            Reader.Read();
+            doctor.MaximumAppointment = Convert.ToInt32(Reader["MaximumAppointment"]);
+            Connection.Close();
+
+
+            query = "select Count(Id) as Appointed from AppointmentScheduleTable where doctorId='" + doctorId +
+                    "' and Appointmentdate= '"+date+"' "  ;
+            Command = new SqlCommand(query,Connection);
+        
+            
+            Connection.Open();
+            Reader = Command.ExecuteReader();
+            Reader.Read();
+            int appointed = Convert.ToInt32(Reader["Appointed"]);
+
+            doctor.RemainingAppointment = doctor.MaximumAppointment - appointed;
+            Connection.Close();
+            return doctor;
+        }
 
 
 

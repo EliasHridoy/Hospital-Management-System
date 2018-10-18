@@ -88,8 +88,7 @@ namespace HospitalManagmentSystemWebApp.Gateways
                 DoctorViewModel doctor = new DoctorViewModel();
 
                 doctor.Id = Convert.ToInt32(Reader["Id"]);
-                doctor.FirstName = Reader["FirstName"].ToString();
-                doctor.LastName = Reader["LastName"].ToString();
+                doctor.Name = Reader["FirstName"].ToString()+" "+ Reader["LastName"].ToString();
                 doctor.Specialization = Reader["Specialization"].ToString();
                 doctor.AvailableTime = (Reader["AvailableTime"].ToString());
                 

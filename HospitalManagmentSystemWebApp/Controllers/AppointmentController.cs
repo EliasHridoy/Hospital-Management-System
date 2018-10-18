@@ -36,7 +36,21 @@ namespace HospitalManagmentSystemWebApp.Controllers
             ViewBag.specialization = doctorManager.GetSpecialization();
 
             ViewBag.message = appointmentManager.Appointment(appointment);
+
+            ModelState.Clear();
+
             return View();
+        }
+
+
+
+        public JsonResult GetDoctorById(int doctorId, string date)
+        {
+            return Json(appointmentManager.GetDoctorById(doctorId,date));
+        }
+        public JsonResult GetDoctorBySpecilization(int specializationId)
+        {
+            return Json(appointmentManager.GetDoctorBySpecilization(specializationId));
         }
 	}
 }
