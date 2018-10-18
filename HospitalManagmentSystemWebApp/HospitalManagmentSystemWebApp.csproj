@@ -165,6 +165,7 @@
     <Compile Include="Controllers\NurseDutyController.cs" />
     <Compile Include="Controllers\PatientController.cs" />
     <Compile Include="Controllers\ReceptionistController.cs" />
+    <Compile Include="Controllers\ReceptionistDutyController.cs" />
     <Compile Include="Gateways\AppointmentGateway.cs" />
     <Compile Include="Gateways\CommonGateway.cs" />
     <Compile Include="Gateways\DoctorGateway.cs" />
@@ -189,9 +190,11 @@
     <Compile Include="Models\NurseDutyScheduleModel.cs" />
     <Compile Include="Models\NurseModel.cs" />
     <Compile Include="Models\PatientModel.cs" />
+    <Compile Include="Models\ReceptionistDutyModel.cs" />
     <Compile Include="Models\ReceptionistModel.cs" />
     <Compile Include="Models\ViewModels\DoctorViewModel.cs" />
     <Compile Include="Models\ViewModels\NurseViewModel.cs" />
+    <Compile Include="Models\ViewModels\ReceptionistViewModel.cs" />
     <Compile Include="Models\ViewModels\ShiftViewModel.cs" />
     <Compile Include="Models\ViewModels\SpecializationViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -269,6 +272,7 @@
     <Content Include="Views\Receptionist\SaveReceptionist.cshtml" />
     <Content Include="Views\Appointment\Appointment.cshtml" />
     <Content Include="Views\NurseDuty\Save.cshtml" />
+    <Content Include="Views\ReceptionistDuty\DutySave.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

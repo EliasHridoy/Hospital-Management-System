@@ -1,0 +1,116 @@
+﻿@using HospitalManagmentSystemWebApp.Models.ViewModels
+@model HospitalManagmentSystemWebApp.Models.ReceptionistDutyModel
+
+@{
+    ViewBag.Title = "DutySave";
+    Layout = "~/Views/Shared/_MasterPage.cshtml";
+
+
+    List<ReceptionistViewModel> receptionistList = ViewBag.receptionistList;
+    List<ShiftViewModel> shiftList = ViewBag.shiftList;
+}
+
+<h2>DutySave</h2>
+
+
+
+<style>
+    .datepicker-dropdown {
+        top: 0;
+        left: 0;
+        padding: 4px;
+        background-color: #2C6E8E;
+        border-radius: 10px;
+    }
+
+
+    .datepicker table tr td,
+    .datepicker table tr th {
+        text-align: center;
+        width: 30px;
+        height: 30px;
+        border-radius: 4px;
+        border: none;
+        color: #FFFFFF;
+    }
+</style>
+
+
+
+
+
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <table class="form-horizontal">
+        <h4>ReceptionistDutyModel</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <tr class="form-group">
+            <td>@Html.LabelFor(model => model.ReceptionistId, new { @class = "control-label col-md-2" })</td>
+            <td class="col-md-10">
+                @Html.DropDownListFor(model => model.ReceptionistId, new SelectList(receptionistList, "Id", "Name"), "--Select--", "")
+            <td>
+                @Html.ValidationMessageFor(model => model.ReceptionistId)
+            </td>
+        </tr>
+
+
+
+        <tr class="form-group">
+            <td>  @Html.LabelFor(model => model.ShiftId, new { @class = "control-label col-md-2" })</td>
+            <td class="col-md-10">
+
+                @Html.DropDownListFor(model => model.ShiftId, new SelectList(shiftList, "Id", "ShiftName"), "--Select--", "")
+            </td>
+
+            <td>
+                @Html.ValidationMessageFor(model => model.ShiftId)
+            </td>
+        </tr>
+
+
+        <tr class="form-group">
+            <td> @Html.LabelFor(model => model.Date, new { @class = "control-label col-md-2" })</td>
+            <td class="col-md-10">
+                @Html.TextBoxFor(model => model.Date)
+            </td>
+            <td>
+                @Html.ValidationMessageFor(model => model.Date)
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td>@ViewBag.message</td>
+            <td class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </td>
+        </tr>
+    </table>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+
+
+
+
+
+<script type='text/javascript'>
+
+
+    $(function () {
+        $('#Date').datepicker({
+            calendarWeeks: true,
+            todayHighlight: true,
+            autoclose: true
+        });
+    });
+
+
+</script>
