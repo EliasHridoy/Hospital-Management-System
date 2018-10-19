@@ -47,6 +47,13 @@ namespace HospitalManagmentSystemWebApp.Managers
             return receptionistGateway.GetAllReceptionist();
         }
 
+        //---------------duty view ------------------------------------
+
+        public List<ReceptionistDutyViewModel> ViewReceptionistDuty(string date, int shiftId = 0)
+        {
+            return receptionistGateway.ViewReceptionistDuty(date, shiftId);
+        }
+
 
     }
 }

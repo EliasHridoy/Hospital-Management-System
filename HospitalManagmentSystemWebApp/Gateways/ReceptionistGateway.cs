@@ -46,7 +46,7 @@ namespace HospitalManagmentSystemWebApp.Gateways
 
         public int DutySave(ReceptionistDutyModel receptionistDuty)
         {
-            query = "INSERT INTO NurseDutyScheduleTable VALUES(  '" + receptionistDuty.ReceptionistId + "', '" + receptionistDuty.Date + "', '" + receptionistDuty.ShiftId + "'   )";
+            query = "INSERT INTO ReceptionistDutyTable VALUES(  '" + receptionistDuty.ReceptionistId + "', '" + receptionistDuty.Date + "', '" + receptionistDuty.ShiftId + "'   )";
 
             Command = new SqlCommand(query, Connection);
 
@@ -85,7 +85,70 @@ namespace HospitalManagmentSystemWebApp.Gateways
             return receptionistList;
         }
 
-        //----------------------------------------------------------------------------------
+        //------------------------------------View Duty----------------------------------------------
+
+
+        public List<ReceptionistDutyViewModel> ViewReceptionistDuty(string date, int shiftId = 0)
+        {
+            if (shiftId <= 0)
+            {
+                query = "SELECT * FROM ReceptionistDutyView where Date = '" + date + "'  ";
+            }
+            else
+            {
+                query = "SELECT * FROM ReceptionistDutyView where Date = '" + date + "' and shiftId= " + shiftId;
+            }
+
+            Command = new SqlCommand(query, Connection);
+
+
+            List<ReceptionistDutyViewModel> receptionistDutyList = new List<ReceptionistDutyViewModel>();
+
+            Connection.Open();
+            Reader = Command.ExecuteReader();
+            while (Reader.Read())
+            {
+                ReceptionistDutyViewModel receptionist = new ReceptionistDutyViewModel();
+
+                receptionist.Name = Reader["FirstName"] + " " + Reader["LastName"];
+                receptionist.Date = date;
+                string shiftStart = Reader["ShiftStart"].ToString();
+                string shiftEnd = Reader["ShiftEnd"].ToString();
+                // 14:00:00 To 22:00:00 
+
+                int hour = Convert.ToInt32(shiftStart.Substring(0, 2));
+                if (hour > 12)
+                {
+                    hour -= 12;
+                    shiftStart = shiftStart.Remove(0, 2);
+                    shiftStart = hour + shiftStart + " PM";
+                }
+                else
+                {
+                    shiftStart += " AM";
+                }
+                hour = Convert.ToInt32(shiftEnd.Substring(0, 2));
+                if (hour > 12)
+                {
+                    hour -= 12;
+                    shiftEnd = shiftEnd.Remove(0, 2);
+                    shiftEnd = hour + shiftEnd + " PM";
+
+                    receptionist.Shift = shiftStart + " To " + shiftEnd;
+
+                }
+                else
+                {
+                    shiftEnd += " AM";
+                }
+
+
+                receptionistDutyList.Add(receptionist);
+            }
+            Connection.Close();
+
+            return receptionistDutyList;
+        } 
       
 
         //----------------------------------------------------------------------------------

@@ -1,20 +1,17 @@
 ﻿@using HospitalManagmentSystemWebApp.Models.ViewModels
-@model IEnumerable<HospitalManagmentSystemWebApp.Models.ViewModels.NurseDutyViewModel>
+
 
 @{
-    ViewBag.Title = "ViewNurseDuty";
+    ViewBag.Title = "Receptionist Duty View";
     Layout = "~/Views/Shared/_MasterPage.cshtml";
-
     List<ShiftViewModel> shiftList = ViewBag.shiftList;
-    List<NurseDutyViewModel> Model = ViewBag.nurseDutyList;
+    List<ReceptionistDutyViewModel> Model = ViewBag.receptionistDutyList;
 }
 
-<h2>ViewNurseDuty</h2>
-
-
+<h2>ReceptionistDutyView</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Save")
+    @Html.ActionLink("Create New", "DutySave")
 </p>
 @using (Html.BeginForm("myForm"))
 {
@@ -41,13 +38,13 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayName("Name")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Date)
+            @Html.DisplayName("Date")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Shift)
+            @Html.DisplayName("Shift")
         </th>
         <th></th>
     </tr>
@@ -75,6 +72,7 @@
     }
 
 </table>
+
 
 
 
@@ -112,7 +110,7 @@
 
 
 <script type='text/javascript'>
-    $(function() {
+    $(function () {
         $('#Date').datepicker({
             calendarWeeks: true,
             todayHighlight: true,
@@ -121,8 +119,8 @@
     });
 
 
-    $(document).ready(function() {
-        $("#myForm").onsubmit(function() {
+    $(document).ready(function () {
+        $("#myForm").onsubmit(function () {
 
             var date = $("#Date").val();
             if (date == "") {
@@ -134,4 +132,4 @@
         });
     });
 
-</Script>
+</script>

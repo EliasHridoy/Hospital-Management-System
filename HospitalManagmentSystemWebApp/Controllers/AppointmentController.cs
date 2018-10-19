@@ -52,5 +52,34 @@ namespace HospitalManagmentSystemWebApp.Controllers
         {
             return Json(appointmentManager.GetDoctorBySpecilization(specializationId));
         }
+
+
+
+
+
+
+        //-----------------View Appointment---------------------
+
+        [HttpGet]
+        public ActionResult ViewAppointment()
+        {
+            ViewBag.doctorList = appointmentManager.GetAllDoctor();
+
+            return View();
+        }
+        [HttpPost]
+        public ActionResult ViewAppointment(string date , int doctorId=0)
+        {
+            ViewBag.doctorList = appointmentManager.GetAllDoctor();
+            ViewBag.appointmentList = appointmentManager.ViewAppointment(date, doctorId);
+
+            return View();
+        }
+
+
+
+
+
+
 	}
 }

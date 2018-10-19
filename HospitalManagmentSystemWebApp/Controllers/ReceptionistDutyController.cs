@@ -39,5 +39,25 @@ namespace HospitalManagmentSystemWebApp.Controllers
             return View();
         }
 
+        //----------------------Duty View------------------------------
+
+
+        [HttpGet]
+        public ActionResult ReceptionistDutyView()
+        {
+            ViewBag.shiftList = nurseDutyScheduleManager.GetAllShift();
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ReceptionistDutyView(string date, int shiftId = 0)
+        {
+            ViewBag.shiftList = nurseDutyScheduleManager.GetAllShift();
+            ViewBag.receptionistDutyList = receptionistManager.ViewReceptionistDuty(date, shiftId);
+            return View();
+        }
+
+
 	}
 }

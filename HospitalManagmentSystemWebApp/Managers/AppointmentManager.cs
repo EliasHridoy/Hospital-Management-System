@@ -48,7 +48,12 @@ namespace HospitalManagmentSystemWebApp.Managers
             return appointmentGateway.GetDoctorBySpecilization(specializationId);
         }
 
-        //--------------------------------------------------------------------
+        //--------------------------View Appointment------------------------------------------
+
+        public List<AppointmentViewModel> ViewAppointment(string date, int doctorId)
+        {
+            return appointmentGateway.ViewAppointment(date, doctorId);
+        }
 
 
 

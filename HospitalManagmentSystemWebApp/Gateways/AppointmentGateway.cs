@@ -111,6 +111,67 @@ namespace HospitalManagmentSystemWebApp.Gateways
         }
 
 
+        ///----------------Appointment View ---------------------------------
+
+
+        public List<AppointmentViewModel> ViewAppointment(string date, int doctorId)
+        {
+            if (doctorId > 0)
+            {
+                query = "SELECT * FROM AppointmentView WHERE Appointmentdate='" + date + "' and Id=" + doctorId;
+            }
+            else
+            {
+                query = "SELECT * FROM AppointmentView WHERE Appointmentdate='" + date + "' " ;
+            }
+            Command = new SqlCommand(query,Connection);
+
+            List<AppointmentViewModel> appointmentList = new List<AppointmentViewModel>();
+
+            Connection.Open();
+            Reader = Command.ExecuteReader();
+            while (Reader.Read())
+            {
+                AppointmentViewModel viewAppointment = new AppointmentViewModel();
+
+                viewAppointment.Name = Reader["FirstName"] + " " + Reader["LastName"];
+                viewAppointment.Date = date;
+                viewAppointment.AppointmentNo = Convert.ToInt32(Reader["AppointmentNo"]);
+                viewAppointment.PatientContactNo = Reader["PatientContactNo"].ToString();
+
+                appointmentList.Add(viewAppointment);
+
+            }
+            Connection.Close();
+
+
+            foreach (var item in appointmentList)
+            {
+            
+                query = "SELECT * FROM PatientTable WHERE ContactNo = '"+item.PatientContactNo+"'    ";
+
+                Command = new SqlCommand(query, Connection);
+
+                Connection.Open();
+
+                Reader = Command.ExecuteReader();
+                if (Reader.Read())
+                {
+                    item.PatientName = Reader["FirstName"] + " " + Reader["LastName"];
+                }
+                Connection.Close();
+
+            }
+            
+
+
+
+
+
+            return appointmentList;
+        }
+
+
 
     }
 }

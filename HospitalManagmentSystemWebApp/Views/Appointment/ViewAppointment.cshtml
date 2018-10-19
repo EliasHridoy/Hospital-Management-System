@@ -1,0 +1,145 @@
+﻿@using HospitalManagmentSystemWebApp.Models.ViewModels
+@model IEnumerable<HospitalManagmentSystemWebApp.Models.ViewModels.AppointmentViewModel>
+
+@{
+    ViewBag.Title = "View Appointment";
+    Layout = "~/Views/Shared/_MasterPage.cshtml";
+
+    List<AppointmentViewModel> appointmentList = ViewBag.appointmentList;
+
+    List<DoctorViewModel> doctorList = ViewBag.doctorList;
+
+
+}
+
+<h2>View Appointment</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Appointment")
+</p>
+
+
+@using (Html.BeginForm(new { id = "myForm" }))
+{
+    <table>
+
+        <tr>
+            <td>@Html.Label("Date")</td>
+            <td>
+                <div class="input-group date" id="Date">
+
+                    @Html.TextBox("Date")<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                </div>
+            </td>
+            <td>@Html.ValidationMessage("AppointmentDate") </td>
+        </tr>
+
+
+        <tr>
+            <td>@Html.Label("Doctor")</td>
+            <td>@Html.DropDownList("DoctorId", new SelectList(doctorList, "Id", "Name"), "--Select--", "")</td>
+            <td>@Html.ValidationMessage("DoctorId")</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" id="submitButton" value="Search" />
+            </td>
+        </tr>
+
+
+    </table>
+
+
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Name")
+        </th>
+        <th>
+            @Html.DisplayName("Date")
+        </th>
+        <th>
+            @Html.DisplayName("AppointmentNo")
+        </th>
+        <th>
+            @Html.DisplayName("PatientContactNo")
+        </th>
+        <th>
+            @Html.DisplayName("PatientName")
+        </th>
+        <th></th>
+    </tr>
+    @if (appointmentList != null)
+    {
+        foreach (var item in appointmentList)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AppointmentNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PatientContactNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PatientName)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+        }
+    }
+
+</table>
+
+
+
+
+
+<script type='text/javascript'>
+    $(function () {
+        $('#Date').datepicker({
+            calendarWeeks: true,
+            todayHighlight: true,
+            autoclose: true
+        });
+    });
+
+
+</script>
+
+
+
+<style>
+    .datepicker-dropdown {
+        top: 0;
+        left: 0;
+        padding: 4px;
+        background-color: #2C6E8E;
+        border-radius: 10px;
+    }
+
+
+    .datepicker table tr td,
+    .datepicker table tr th {
+        text-align: center;
+        width: 30px;
+        height: 30px;
+        border-radius: 4px;
+        border: none;
+        color: #FFFFFF;
+    }
+</style>
+
+
+
