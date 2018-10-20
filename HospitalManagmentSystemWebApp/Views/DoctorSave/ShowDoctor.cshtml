@@ -6,7 +6,7 @@
     List<SpecializationViewModel> spelializationList = ViewBag.specialization;
     List<DoctorViewModel> doctorList = ViewBag.doctorList;
     
-    ViewBag.Title = "Show Doctor";
+    ViewBag.Title = "Search Doctor";
 }
 
 
@@ -38,7 +38,7 @@
     </table>
         
         
-    <table>
+    <table class="table">
         
 
         <thead>
@@ -56,7 +56,7 @@
             foreach (DoctorViewModel doctor in doctorList)
             {
                 <tr>
-                    <td>@doctor.FirstName @doctor.LastName</td>
+                    <td>@doctor.Name</td>
                     <td>@doctor.Specialization</td>
                     <td>@doctor.AvailableTime</td>
                     <td>@Html.ActionLink("Edit","EditDoctor", new { id = doctor.Id })</td>

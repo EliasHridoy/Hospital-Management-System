@@ -207,19 +207,9 @@
     <Content Include="Content\bootstrap-timepicker.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\Menu\css\component.css" />
-    <Content Include="Content\Menu\css\demo.css" />
-    <Content Include="Content\Menu\css\normalize.css" />
-    <Content Include="Content\Menu\css\styles.css" />
-    <Content Include="Content\Menu\fonts\codropsicons\codropsicons.svg" />
-    <Content Include="Content\Menu\fonts\codropsicons\license.txt" />
-    <Content Include="Content\Menu\fonts\ecoicons\ecoicons.dev.svg" />
-    <Content Include="Content\Menu\fonts\ecoicons\ecoicons.svg" />
-    <Content Include="Content\Menu\fonts\ecoicons\license.txt" />
-    <Content Include="Content\Menu\fonts\ecoicons\Read Me.txt" />
-    <Content Include="Content\Menu\js\classie.js" />
-    <Content Include="Content\Menu\js\gnmenu.js" />
-    <Content Include="Content\Menu\js\modernizr.custom.js" />
+    <Content Include="Content\FontAwesome.css" />
+    <Content Include="Content\Menu\css\ResponsiveMenuNavigation.css" />
+    <Content Include="Content\Menu\js\ResponsiveMenuNavigation.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -228,16 +218,6 @@
     <Content Include="Scripts\bootstrap-timepicker.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Content\Menu\css\.DS_Store" />
-    <Content Include="Content\Menu\fonts\.DS_Store" />
-    <Content Include="Content\Menu\fonts\codropsicons\.DS_Store" />
-    <Content Include="Content\Menu\fonts\codropsicons\codropsicons.eot" />
-    <Content Include="Content\Menu\fonts\codropsicons\codropsicons.ttf" />
-    <Content Include="Content\Menu\fonts\codropsicons\codropsicons.woff" />
-    <Content Include="Content\Menu\fonts\ecoicons\ecoicons.eot" />
-    <Content Include="Content\Menu\fonts\ecoicons\ecoicons.ttf" />
-    <Content Include="Content\Menu\fonts\ecoicons\ecoicons.woff" />
-    <Content Include="Content\Menu\js\.DS_Store" />
     <Content Include="Content\bootstrap-datepicker3.min.css" />
     <Content Include="Content\timepicker.less" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -282,6 +262,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Menu\fonts\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

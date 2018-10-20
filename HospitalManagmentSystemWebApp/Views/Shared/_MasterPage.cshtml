@@ -6,73 +6,157 @@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
 
-    <link rel="stylesheet" type="text/css" href="~/Content/Menu/css/normalize.css" />
-    <link rel="stylesheet" type="text/css" href="~/Content/Menu/css/demo.css" />
-    <link rel="stylesheet" type="text/css" href="~/Content/Menu/css/component.css"/>
-    <link href="~/Content/Menu/css/styles.css" rel="stylesheet" />
-    <script src="~/Content/Menu/js/modernizr.custom.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/Content/Menu/css/ResponsiveMenuNavigation.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/FontAwesome.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+
+    <script src="~/Content/Menu/js/ResponsiveMenuNavigation.js"></script>
 
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <script src="~/Scripts/bootstrap.min.js"></script>
     <link href="~/Content/bootstrap-timepicker.min.css" rel="stylesheet" />
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <link href="~/Content/bootstrap-datepicker3.min.css" rel="stylesheet" />
     <script src="~/Scripts/bootstrap-datepicker.min.js"></script>
     <script src="~/Scripts/bootstrap-timepicker.min.js"></script>
 
 
 </head>
-<body>
+<body style=" background: #a8b5a9">
 
 
+    <nav>
+        <ul>
+            <li>
+                <a href="">About</a>
 
-    <div class="container">
-        <ul id="gn-menu" class="gn-menu-main">
-            <li class="gn-trigger">
-                <a class="gn-icon gn-icon-menu"><span>Menu</span></a>
-                <nav class="gn-menu-wrapper">
-                    <div class="gn-scroller">
-                        <ul class="gn-menu">
-                            <li class="gn-search-item">
-                                <input placeholder="Search" type="search" class="gn-search">
-                                <a class="gn-icon gn-icon-search"><span>Search</span></a>
-                            </li>
-                            <li>
-                                <a class="has-sub">Doctor</a>
-                                <ul>
-                                    <li><a>New Doctor</a></li>
-                                    <li><a class="last">View Doctor</a></li>
-                                </ul>
-                            </li>
-                            <li><a class="gn-icon gn-icon-cog">Settings</a></li>
-                            <li><a class="gn-icon gn-icon-help">Help</a></li>
-                            <li>
-                                <a class="gn-icon gn-icon-archive">Archives</a>
-                                <ul class="gn-submenu">
-                                    <li><a class="gn-icon gn-icon-article">Articles</a></li>
-                                    <li><a class="gn-icon gn-icon-pictures">Images</a></li>
-                                    <li><a class="gn-icon gn-icon-videos">Videos</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div><!-- /gn-scroller -->
-                </nav>
+
             </li>
-            <li><a href="#">Codrops</a></li>
-            <li><a class="codrops-icon codrops-icon-prev" href="#"><span>Previous Demo</span></a></li>
-            <li><a class="codrops-icon codrops-icon-drop" href="#"><span>Back to the Codrops Article</span></a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Work</a></li>
         </ul>
+        <div class="button">
+            <a class="btn-open" href="#">Menu</a>
+        </div>
+    </nav>
+    <div class="overlay">
+        <div class="wrap">
+            <ul class="wrap-nav">
+                <li>
+                    <a href="#"><i class="material-icons" style="font-size:30px;color:lightblue;">person</i> Doctor</a>
+                    <ul>
+                        <li>@Html.ActionLink("Register Doctor", "SaveDoctor", "DoctorSave")</li>
+                        <li>@Html.ActionLink("View Doctor", "ShowDoctor", "DoctorSave")</li>
+                        <li>@Html.ActionLink("Appointment", "Appointment", "Appointment")</li>
+                        <li>@Html.ActionLink("View Appointment", "ViewAppointment", "Appointment")</li>
+                       
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Employe</a>
+                    <ul>
+                        <li>@Html.ActionLink("Register Receptionist", "SaveReceptionist", "Receptionist")</li>
+                        <li>@Html.ActionLink("Register Nurse", "SaveNurse", "Nurse")</li>
+                        <li>@Html.ActionLink("View Receptonist", "ViewReceptionist", "Receptionist")</li>
+                        <li>@Html.ActionLink("View Nurse", "ViewNurse", "Nurse")</li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Patient</a>
+                    <ul>
+                        <li>@Html.ActionLink("Register", "Save", "Patient")</li>
+                        <li>@Html.ActionLink("View Patient", "ViewPatient", "Patient")</li>
 
-        
-            <header>
-                <h1>@ViewBag.Title</h1>
-            </header>
-        
-    </div><!-- /container -->
+                    </ul>
+                </li>
+                <br/>
+                <li>
+                    <a href="#">Duty</a>
+                    <ul>
+                        <li>@Html.ActionLink("Create Receptonist Duty", "DutySave", "ReceptionistDuty")</li>
+                        <li>@Html.ActionLink("Create Nurse Duty", "Save", "NurseDuty")</li>
+                        <li>@Html.ActionLink("View Receptonist Duty", "ReceptionistDutyView", "ReceptionistDuty")</li>
+                        <li>@Html.ActionLink("View Nurse Duty", "ViewNurseDuty", "NurseDuty")</li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Laboratory Test</a>
+                    <ul>
+                        <li>@Html.ActionLink("Create Receptonist Duty", "Save", "Laboratory")</li>
+                        <li>@Html.ActionLink("View Receptonist Duty", "ShowLaboratory", "Laboratory")</li>
+                        <li>@Html.ActionLink("View Nurse Duty", "ViewNurseDuty", "NurseDuty")</li>
+                    </ul>
+                </li>
+            </ul>
 
-    <div align="center" class="divContent">
-        @RenderBody()
+            @*//-------------footer------------------//*@
+            <div class="social">
+                <a href="#">
+                    <div class="social-icon">
+                        <i class="fa fa-facebook"></i>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="social-icon">
+                        <i class="fa fa-twitter"></i>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="social-icon">
+                        <i class="fa fa-codepen"></i>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="social-icon">
+                        <i class="fa fa-behance"></i>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="social-icon">
+                        <i class="fa fa-dribbble"></i>
+                    </div>
+                </a>
+                <p>
+                    Elias Hridoy<br>
+                    email: <a href="#">eliaHridoy.cse@gmail.com</a>
+                </p>
+            </div>
+        </div>
     </div>
+<div class="content">
+
+
+    <p>Some Google icons:</p>
+    <i class="material-icons">cloud</i>
+    <i class="material-icons">favorite</i>
+    <i class="material-icons">attachment</i>
+    <i class="material-icons">computer</i>
+    <i class="material-icons">traffic</i>
+    <br><br>
+
+    <p>Styled Google icons (size, color, and shadow):</p>
+    <i class="material-icons" style="font-size:60px;color:lightblue;text-shadow:2px 2px 4px #000000;">person</i>
+
+
+
+    <h2 class="text-success">@ViewBag.Title</h2>
+
+        <div align="center" >
+            @RenderBody()
+        </div>
+
+
+    </div>
+
+
+
+
+    
+
+
 
    
 
@@ -81,13 +165,6 @@
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 
 
-    @*------Nav bar--------*@
-    <script src="~/Content/Menu/js/classie.js"></script>
-    <script src="~/Content/Menu/js/gnmenu.js"></script>
-    <script>
-        new gnMenu(document.getElementById('gn-menu'));
-    </script>
-    @*------Nav bar-------*@
 
 
 </body>
