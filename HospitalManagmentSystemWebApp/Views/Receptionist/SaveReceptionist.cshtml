@@ -5,35 +5,35 @@
 @{
     Layout = "~/Views/Shared/_MasterPage.cshtml";
 
-    string message = ViewBag.message;
     ViewBag.Title = "Save Receptionist";
 }
 
-<h2>Save  Nurse</h2>
-
 
 <div>
-    @using (@Html.BeginForm())
+    @using (Html.BeginForm())
     {
         
-        <table class="table">
+        <table >
 
 
             @Html.ValidationSummary(true)
     
-            <tr class="tab-content">
+            <tr>
                 <td>@Html.LabelFor(model => model.FirstName, new { @class = "control-label col-md-2" })</td>
-                <td >
+                <td>
                     @Html.EditorFor(model => model.FirstName)
+                </td>
                     <td>@Html.ValidationMessageFor(model => model.FirstName)</td>
 
 
             </tr>
     
-            <tr >
-              <td>  @Html.LabelFor(model => model.LastName, new { @class = "control-label col-md-2" })</td>
-                <td >
+            <tr>
+                <td>  @Html.LabelFor(model => model.LastName, new { @class = "control-label col-md-2" })</td>
+                <td>
                     @Html.EditorFor(model => model.LastName)
+                </td>
+                <td>
                     @Html.ValidationMessageFor(model => model.LastName)
                 </td>
             </tr>
@@ -64,10 +64,10 @@
             </tr>
     
             <tr >
-               <td> @Html.LabelFor(model => model.NID, new { @class = "control-label col-md-2" })</td>
+               <td> @Html.LabelFor(model => model.ContactNo, new { @class = "control-label col-md-2" })</td>
                 <td >
-                    @Html.EditorFor(model => model.NID)</td>
-                  <td>  @Html.ValidationMessageFor(model => model.NID)
+                    @Html.EditorFor(model => model.ContactNo)</td>
+                  <td>  @Html.ValidationMessageFor(model => model.ContactNo)
                 </td>
             </tr>
     

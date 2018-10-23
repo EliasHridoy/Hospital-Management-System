@@ -1,0 +1,96 @@
+﻿
+.NiceTable {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: rgba(175, 171, 171, 0.62);
+    color: black;
+    
+}
+
+.NiceTable th, td {
+    text-align: center;
+    font-weight: bold;
+    padding: 8px;
+}
+
+.NiceTable tr:nth-child(even){background-color: #f2f2f2}
+
+.NiceTable th {
+    background-color: #4CAF50;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+
+.tr:hover {
+    background-color: #00bfff; /* Green */
+    color: white;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+ /*----------------------Nice table 1----------------------------*/
+
+.NiceTable1 {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+    margin: 25px;
+}
+
+.NiceTable1 td, #customers th {
+    border: 2px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.NiceTable1 tr:nth-child(even){background-color: #f2f2f2;}
+.NiceTable1 tr:hover {background-color: #ddd;}
+
+.NiceTable1 th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #4CAF50;
+    color: white;
+}
+
+.tr:hover {
+    background-color: #00bfff; /* Green */
+    color: white;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+/*----------------------Nice table 1 End ----------------------------*/
+/*----------------------Nice table 2  ----------------------------*/
+
+.NiceTable2 {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+    margin: 25px;
+}
+
+.NiceTable2 td, th {
+    border: 1px solid #ffffff;
+    padding: 8px;
+    text-align: center;
+}
+
+.NiceTable2 tr:nth-child(even){background-color: #dddddd;}
+.NiceTable2 tr:hover {background-color: #fffff0;}
+
+.NiceTable2 th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #8fbc8f;
+    color: white;
+}
+
+.tr:hover {
+    background-color: #00bfff; /* Green */
+    color: white;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+/*----------------------Nice table 2 End ----------------------------*/

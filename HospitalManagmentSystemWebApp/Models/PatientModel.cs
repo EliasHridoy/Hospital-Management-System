@@ -11,7 +11,7 @@ namespace HospitalManagmentSystemWebApp.Models
     {
 
         [Required]
-        [Display(Name = "Name")]
+        
         public string FirstName { get; set; }
         [Required]
         public string LastName { get; set; }
@@ -24,13 +24,13 @@ namespace HospitalManagmentSystemWebApp.Models
         public string ContactNo { get; set; }
         
         [Required(ErrorMessage = "Please enter a valid Date")]
-        public DateTime DateOfBirth { get; set; }
+        public string DateOfBirth { get; set; }
 
         [Required]
         public float Height { get; set; }
         [Required]
         public float Weight { get; set; }
         [Required]
-        public DateTime AddmissionDate { get; set; }
+        public string AddmissionDate { get; set; }
     }
 }

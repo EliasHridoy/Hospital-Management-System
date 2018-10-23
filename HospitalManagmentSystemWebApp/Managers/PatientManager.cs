@@ -22,6 +22,12 @@ namespace HospitalManagmentSystemWebApp.Managers
         }
 
 
+        public List<PatientModel> ViewPaitent(string contactNo)
+        {
+            return patientGateway.ViewPaitent(contactNo);
+        }
+
+
 
     }
-}
+    }

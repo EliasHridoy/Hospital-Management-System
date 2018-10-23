@@ -40,6 +40,44 @@ namespace HospitalManagmentSystemWebApp.Gateways
 
 
 
+        //-----------------View Patient--------------------
+
+        public List<PatientModel> ViewPaitent(string contactNo)
+        {
+            List<PatientModel> patientsList = new List<PatientModel>();
+            if (contactNo == "")
+            {
+                query = "SELECT * FROM PatientTable";
+            }
+            else
+            {
+                query = "SELECT * FROM PatientTable WHERE ContactNo='"+contactNo+"' ";
+            }
+
+            Command = new SqlCommand(query,Connection);
+
+            Connection.Open();
+            Reader = Command.ExecuteReader();
+            while (Reader.Read())
+            {
+                PatientModel patient = new PatientModel();
+                patient.FirstName = Reader["FirstName"].ToString();
+                patient.LastName = Reader["LastName"].ToString();
+                patient.ContactNo = Reader["ContactNo"].ToString();
+                patient.Age = Convert.ToInt16(Reader["Age"]);
+                patient.DateOfBirth = Reader["BirthDate"].ToString();
+                patient.AddmissionDate = Reader["AdmitteDate"].ToString();
+
+                patientsList.Add(patient);
+            }
+            Connection.Close();
+
+
+            return patientsList;
+        }
+
+
+
 
 
 

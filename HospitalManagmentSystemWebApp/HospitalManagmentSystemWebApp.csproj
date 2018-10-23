@@ -20,6 +20,8 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -97,6 +99,9 @@
       <Private>True</Private>
       <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
@@ -156,6 +161,7 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\FontAwesomeBundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AppointmentController.cs" />
@@ -208,8 +214,43 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\FontAwesome.css" />
+    <Content Include="Content\fontawesome\font-awesome.css" />
+    <Content Include="Content\fontawesome\font-awesome.min.css" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\images\medicine.png" />
     <Content Include="Content\Menu\css\ResponsiveMenuNavigation.css" />
     <Content Include="Content\Menu\js\ResponsiveMenuNavigation.js" />
+    <Content Include="Content\Table\Table.css" />
+    <Content Include="Content\Table_Fixed_Header\css\main.css" />
+    <Content Include="Content\Table_Fixed_Header\css\util.css" />
+    <Content Include="Content\Table_Fixed_Header\fonts\font-awesome-4.7.0\css\font-awesome.css" />
+    <Content Include="Content\Table_Fixed_Header\fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
+    <Content Include="Content\Table_Fixed_Header\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\Table_Fixed_Header\fonts\font-awesome-4.7.0\HELP-US-OUT.txt" />
+    <Content Include="Content\Table_Fixed_Header\fonts\Lato\OFL.txt" />
+    <Content Include="Content\Table_Fixed_Header\fonts\montserrat\OFL.txt" />
+    <Content Include="Content\Table_Fixed_Header\images\icons\favicon.ico" />
+    <Content Include="Content\Table_Fixed_Header\index.html" />
+    <Content Include="Content\Table_Fixed_Header\js\main.js" />
+    <Content Include="Content\Table_Fixed_Header\vendor\animate\animate.css" />
+    <Content Include="Content\Table_Fixed_Header\vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="Content\Table_Fixed_Header\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="Content\Table_Fixed_Header\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="Content\Table_Fixed_Header\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="Content\Table_Fixed_Header\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="Content\Table_Fixed_Header\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\Table_Fixed_Header\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="Content\Table_Fixed_Header\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\Table_Fixed_Header\vendor\bootstrap\js\popper.js" />
+    <Content Include="Content\Table_Fixed_Header\vendor\bootstrap\js\popper.min.js" />
+    <Content Include="Content\Table_Fixed_Header\vendor\bootstrap\js\tooltip.js" />
+    <Content Include="Content\Table_Fixed_Header\vendor\jquery\jquery-3.2.1.min.js" />
+    <Content Include="Content\Table_Fixed_Header\vendor\perfect-scrollbar\perfect-scrollbar.css" />
+    <Content Include="Content\Table_Fixed_Header\vendor\perfect-scrollbar\perfect-scrollbar.min.js" />
+    <Content Include="Content\Table_Fixed_Header\vendor\select2\select2.css" />
+    <Content Include="Content\Table_Fixed_Header\vendor\select2\select2.js" />
+    <Content Include="Content\Table_Fixed_Header\vendor\select2\select2.min.css" />
+    <Content Include="Content\Table_Fixed_Header\vendor\select2\select2.min.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -220,6 +261,88 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\bootstrap-datepicker3.min.css" />
     <Content Include="Content\timepicker.less" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\Table_Fixed_Header\vendor\bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="Content\Table_Fixed_Header\vendor\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="Content\Table_Fixed_Header\vendor\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="Content\Table_Fixed_Header\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\Table_Fixed_Header\vendor\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Content\Table_Fixed_Header\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Content\Table_Fixed_Header\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\Table_Fixed_Header\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\Table_Fixed_Header\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\Table_Fixed_Header\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\Table_Fixed_Header\fonts\font-awesome-4.7.0\fonts\FontAwesome.otf" />
+    <Content Include="Content\Table_Fixed_Header\fonts\font-awesome-4.7.0\less\animated.less" />
+    <Content Include="Content\Table_Fixed_Header\fonts\font-awesome-4.7.0\less\bordered-pulled.less" />
+    <Content Include="Content\Table_Fixed_Header\fonts\font-awesome-4.7.0\less\core.less" />
+    <Content Include="Content\Table_Fixed_Header\fonts\font-awesome-4.7.0\less\fixed-width.less" />
+    <Content Include="Content\Table_Fixed_Header\fonts\font-awesome-4.7.0\less\font-awesome.less" />
+    <Content Include="Content\Table_Fixed_Header\fonts\font-awesome-4.7.0\less\icons.less" />
+    <Content Include="Content\Table_Fixed_Header\fonts\font-awesome-4.7.0\less\larger.less" />
+    <Content Include="Content\Table_Fixed_Header\fonts\font-awesome-4.7.0\less\list.less" />
+    <Content Include="Content\Table_Fixed_Header\fonts\font-awesome-4.7.0\less\mixins.less" />
+    <Content Include="Content\Table_Fixed_Header\fonts\font-awesome-4.7.0\less\path.less" />
+    <Content Include="Content\Table_Fixed_Header\fonts\font-awesome-4.7.0\less\rotated-flipped.less" />
+    <Content Include="Content\Table_Fixed_Header\fonts\font-awesome-4.7.0\less\screen-reader.less" />
+    <Content Include="Content\Table_Fixed_Header\fonts\font-awesome-4.7.0\less\stacked.less" />
+    <Content Include="Content\Table_Fixed_Header\fonts\font-awesome-4.7.0\less\variables.less" />
+    <Content Include="Content\Table_Fixed_Header\fonts\font-awesome-4.7.0\scss\font-awesome.scss" />
+    <Content Include="Content\Table_Fixed_Header\fonts\font-awesome-4.7.0\scss\_animated.scss" />
+    <Content Include="Content\Table_Fixed_Header\fonts\font-awesome-4.7.0\scss\_bordered-pulled.scss" />
+    <Content Include="Content\Table_Fixed_Header\fonts\font-awesome-4.7.0\scss\_core.scss" />
+    <Content Include="Content\Table_Fixed_Header\fonts\font-awesome-4.7.0\scss\_fixed-width.scss" />
+    <Content Include="Content\Table_Fixed_Header\fonts\font-awesome-4.7.0\scss\_icons.scss" />
+    <Content Include="Content\Table_Fixed_Header\fonts\font-awesome-4.7.0\scss\_larger.scss" />
+    <Content Include="Content\Table_Fixed_Header\fonts\font-awesome-4.7.0\scss\_list.scss" />
+    <Content Include="Content\Table_Fixed_Header\fonts\font-awesome-4.7.0\scss\_mixins.scss" />
+    <Content Include="Content\Table_Fixed_Header\fonts\font-awesome-4.7.0\scss\_path.scss" />
+    <Content Include="Content\Table_Fixed_Header\fonts\font-awesome-4.7.0\scss\_rotated-flipped.scss" />
+    <Content Include="Content\Table_Fixed_Header\fonts\font-awesome-4.7.0\scss\_screen-reader.scss" />
+    <Content Include="Content\Table_Fixed_Header\fonts\font-awesome-4.7.0\scss\_stacked.scss" />
+    <Content Include="Content\Table_Fixed_Header\fonts\font-awesome-4.7.0\scss\_variables.scss" />
+    <Content Include="Content\Table_Fixed_Header\fonts\Lato\Lato-Black.ttf" />
+    <Content Include="Content\Table_Fixed_Header\fonts\Lato\Lato-BlackItalic.ttf" />
+    <Content Include="Content\Table_Fixed_Header\fonts\Lato\Lato-Bold.ttf" />
+    <Content Include="Content\Table_Fixed_Header\fonts\Lato\Lato-BoldItalic.ttf" />
+    <Content Include="Content\Table_Fixed_Header\fonts\Lato\Lato-Hairline.ttf" />
+    <Content Include="Content\Table_Fixed_Header\fonts\Lato\Lato-HairlineItalic.ttf" />
+    <Content Include="Content\Table_Fixed_Header\fonts\Lato\Lato-Italic.ttf" />
+    <Content Include="Content\Table_Fixed_Header\fonts\Lato\Lato-Light.ttf" />
+    <Content Include="Content\Table_Fixed_Header\fonts\Lato\Lato-LightItalic.ttf" />
+    <Content Include="Content\Table_Fixed_Header\fonts\Lato\Lato-Regular.ttf" />
+    <Content Include="Content\Table_Fixed_Header\fonts\montserrat\Montserrat-Black.ttf" />
+    <Content Include="Content\Table_Fixed_Header\fonts\montserrat\Montserrat-BlackItalic.ttf" />
+    <Content Include="Content\Table_Fixed_Header\fonts\montserrat\Montserrat-Bold.ttf" />
+    <Content Include="Content\Table_Fixed_Header\fonts\montserrat\Montserrat-BoldItalic.ttf" />
+    <Content Include="Content\Table_Fixed_Header\fonts\montserrat\Montserrat-ExtraBold.ttf" />
+    <Content Include="Content\Table_Fixed_Header\fonts\montserrat\Montserrat-ExtraBoldItalic.ttf" />
+    <Content Include="Content\Table_Fixed_Header\fonts\montserrat\Montserrat-ExtraLight.ttf" />
+    <Content Include="Content\Table_Fixed_Header\fonts\montserrat\Montserrat-ExtraLightItalic.ttf" />
+    <Content Include="Content\Table_Fixed_Header\fonts\montserrat\Montserrat-Italic.ttf" />
+    <Content Include="Content\Table_Fixed_Header\fonts\montserrat\Montserrat-Light.ttf" />
+    <Content Include="Content\Table_Fixed_Header\fonts\montserrat\Montserrat-LightItalic.ttf" />
+    <Content Include="Content\Table_Fixed_Header\fonts\montserrat\Montserrat-Medium.ttf" />
+    <Content Include="Content\Table_Fixed_Header\fonts\montserrat\Montserrat-MediumItalic.ttf" />
+    <Content Include="Content\Table_Fixed_Header\fonts\montserrat\Montserrat-Regular.ttf" />
+    <Content Include="Content\Table_Fixed_Header\fonts\montserrat\Montserrat-SemiBold.ttf" />
+    <Content Include="Content\Table_Fixed_Header\fonts\montserrat\Montserrat-SemiBoldItalic.ttf" />
+    <Content Include="Content\Table_Fixed_Header\fonts\montserrat\Montserrat-Thin.ttf" />
+    <Content Include="Content\Table_Fixed_Header\fonts\montserrat\Montserrat-ThinItalic.ttf" />
+    <Content Include="Content\Table_Fixed_Header\fonts\OpenSans\OpenSans-Bold.ttf" />
+    <Content Include="Content\Table_Fixed_Header\fonts\OpenSans\OpenSans-BoldItalic.ttf" />
+    <Content Include="Content\Table_Fixed_Header\fonts\OpenSans\OpenSans-ExtraBold.ttf" />
+    <Content Include="Content\Table_Fixed_Header\fonts\OpenSans\OpenSans-ExtraBoldItalic.ttf" />
+    <Content Include="Content\Table_Fixed_Header\fonts\OpenSans\OpenSans-Italic.ttf" />
+    <Content Include="Content\Table_Fixed_Header\fonts\OpenSans\OpenSans-Light.ttf" />
+    <Content Include="Content\Table_Fixed_Header\fonts\OpenSans\OpenSans-LightItalic.ttf" />
+    <Content Include="Content\Table_Fixed_Header\fonts\OpenSans\OpenSans-Regular.otf" />
+    <Content Include="Content\Table_Fixed_Header\fonts\OpenSans\OpenSans-Regular.ttf" />
+    <Content Include="Content\Table_Fixed_Header\fonts\OpenSans\OpenSans-SemiBold.ttf" />
+    <Content Include="Content\Table_Fixed_Header\fonts\OpenSans\OpenSans-SemiBoldItalic.ttf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -259,6 +382,8 @@
     <Content Include="Views\NurseDuty\ViewNurseDuty.cshtml" />
     <Content Include="Views\ReceptionistDuty\ReceptionistDutyView.cshtml" />
     <Content Include="Views\Appointment\ViewAppointment.cshtml" />
+    <Content Include="Views\Patient\ViewPaitent.cshtml" />
+    <Content Include="Views\Receptionist\ViewReceptionist.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

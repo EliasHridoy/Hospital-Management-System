@@ -29,8 +29,8 @@ namespace HospitalManagmentSystemWebApp.Models
         [Required(ErrorMessage = "Please enter Blood Group")]
         public string  BloodGroup { get; set; }
         
-        [Required(ErrorMessage = "Please enter NID")] 
-        public int NID { get; set; }
+        [Required(ErrorMessage = "Please enter ContactNo")] 
+        public int ContactNo { get; set; }
 
         [Required(ErrorMessage = "Please enter Age")]
         public int Age { get; set; }

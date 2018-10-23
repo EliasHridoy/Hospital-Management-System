@@ -30,5 +30,19 @@ namespace HospitalManagmentSystemWebApp.Controllers
             ViewBag.message = patientManager.Save(patient);
             return View();
         }
-	}
+        //-------------View Patient--------------------------
+        [HttpGet]
+        public ActionResult ViewPaitent()
+        {
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ViewPaitent(string contactNo="")
+        {
+            ViewBag.patientList = patientManager.ViewPaitent(contactNo);
+            return View();
+        }
+    }
 }

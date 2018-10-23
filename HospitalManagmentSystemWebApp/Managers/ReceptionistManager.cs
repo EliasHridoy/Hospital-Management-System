@@ -31,9 +31,15 @@ namespace HospitalManagmentSystemWebApp.Managers
         }
 
 
-         //---------------------------Duty----------------------------------------------------
+        //---------------------------View All receptionist----------------------------------------------------
+        public List<ReceptionistModel> ViewReceptionist()
+        {
+            return receptionistGateway.ViewReceptionist();
+        }
 
-        public string DutySave(ReceptionistDutyModel receptionistDuty)
+        //---------------------------Duty----------------------------------------------------
+
+            public string DutySave(ReceptionistDutyModel receptionistDuty)
         {
             int rowEffect = receptionistGateway.DutySave(receptionistDuty);
 

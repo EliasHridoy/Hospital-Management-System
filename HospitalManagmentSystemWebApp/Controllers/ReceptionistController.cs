@@ -33,5 +33,20 @@ namespace HospitalManagmentSystemWebApp.Controllers
 
             return View();
         }
+
+        //------------------View All receptionist--------------------
+
+        public ActionResult ViewReceptionist()
+        {
+            List<ReceptionistModel> Model = receptionistManager.ViewReceptionist();
+            return View(Model);
+        }
+
+
+
+
+
+
+
 	}
 }

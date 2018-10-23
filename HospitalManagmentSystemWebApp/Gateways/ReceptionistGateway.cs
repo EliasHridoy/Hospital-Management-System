@@ -18,8 +18,9 @@ namespace HospitalManagmentSystemWebApp.Gateways
 
         public int Save(ReceptionistModel receptionist)
         {
+
             query = "INSERT INTO ReceptionistTable " +
-                "VALUES(@firstName,@lastName,@NID,@address," +
+                "VALUES(@firstName,@lastName,@contactNo,@address," +
                     "@qalification,@Age,@BloodGroup ) ";
 
             Command = new SqlCommand(query, Connection);
@@ -29,7 +30,7 @@ namespace HospitalManagmentSystemWebApp.Gateways
             Command.Parameters.AddWithValue("@Age", receptionist.Age);
             Command.Parameters.AddWithValue("@address", receptionist.Address);
             Command.Parameters.AddWithValue("@qalification", receptionist.Qualification);
-            Command.Parameters.AddWithValue("@NID", receptionist.NID);
+            Command.Parameters.AddWithValue("@contactNo", receptionist.ContactNo);
             Command.Parameters.AddWithValue("@BloodGroup", receptionist.BloodGroup);
 
             Connection.Open();
@@ -39,6 +40,42 @@ namespace HospitalManagmentSystemWebApp.Gateways
             return rowEffect;
 
         }
+
+
+
+        //---------------------------Show Receptionist----------------------------------------------------
+
+
+        public List<ReceptionistModel> ViewReceptionist()
+        {
+            List<ReceptionistModel> receptionistList = new List<ReceptionistModel>();
+           
+                query = "SELECT * FROM ReceptionistTable";
+            
+
+            Command = new SqlCommand(query, Connection);
+
+            Connection.Open();
+            Reader = Command.ExecuteReader();
+            while (Reader.Read())
+            {
+                ReceptionistModel receptionist = new ReceptionistModel();
+                receptionist.FirstName = Reader["FirstName"].ToString();
+                receptionist.LastName = Reader["LastName"].ToString();
+                receptionist.BloodGroup = Reader["BloodGroup"].ToString();
+                receptionist.Address = Reader["Address"].ToString();
+                receptionist.Age = Convert.ToInt32(Reader["Age"]);
+                receptionist.ContactNo = Convert.ToInt32(Reader["ContactNo"]);
+                
+                receptionistList.Add(receptionist);
+            }
+            Connection.Close();
+
+
+            return receptionistList;
+        }
+
+
 
 
 

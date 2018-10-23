@@ -7,10 +7,10 @@
     <title>@ViewBag.Title</title>
 
     <link rel="stylesheet" type="text/css" href="~/Content/Menu/css/ResponsiveMenuNavigation.css" />
-    <link rel="stylesheet" type="text/css" href="~/Content/FontAwesome.css"/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
+    <link href="~/Content/fontawesome/font-awesome.css" rel="stylesheet" />
 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
 
 
@@ -23,37 +23,40 @@
     <script src="~/Scripts/bootstrap-datepicker.min.js"></script>
     <script src="~/Scripts/bootstrap-timepicker.min.js"></script>
 
+    <link href="~/Content/Table/Table.css" rel="stylesheet" />
 
 </head>
-<body style=" background: #a8b5a9">
+<body style=" background: #FAFAFA">
 
 
-    <nav>
-        <ul>
-            <li>
-                <a href="">About</a>
+<nav>
+    <div class="navIcon">
+        <a class="navIcon-open" href="#"><img src="~/Content/images/medicine.png" width="40px" height="40px" /></a>
+    </div>
+    <ul>
+        <li>
+            <a href="">About</a>
+        </li>
 
-
-            </li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Work</a></li>
-        </ul>
-        <div class="button">
-            <a class="btn-open" href="#">Menu</a>
-        </div>
-    </nav>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Work</a></li>
+    </ul>
+    <div class="button">
+        <a class="btn-open" href="#"></a>
+    </div>
+</nav>
     <div class="overlay">
         <div class="wrap">
             <ul class="wrap-nav">
                 <li>
-                    <a href="#"><i class="material-icons" style="font-size:30px;color:lightblue;">person</i> Doctor</a>
+                    <a href="#"><i class="fa fa-user-md"></i> Doctor</a>
                     <ul>
                         <li>@Html.ActionLink("Register Doctor", "SaveDoctor", "DoctorSave")</li>
                         <li>@Html.ActionLink("View Doctor", "ShowDoctor", "DoctorSave")</li>
                         <li>@Html.ActionLink("Appointment", "Appointment", "Appointment")</li>
                         <li>@Html.ActionLink("View Appointment", "ViewAppointment", "Appointment")</li>
                        
-                    </ul>
+                    </ul> 
                 </li>
                 <li>
                     <a href="#">Employe</a>
@@ -61,14 +64,14 @@
                         <li>@Html.ActionLink("Register Receptionist", "SaveReceptionist", "Receptionist")</li>
                         <li>@Html.ActionLink("Register Nurse", "SaveNurse", "Nurse")</li>
                         <li>@Html.ActionLink("View Receptonist", "ViewReceptionist", "Receptionist")</li>
-                        <li>@Html.ActionLink("View Nurse", "ViewNurse", "Nurse")</li>
+                        <li>@Html.ActionLink("View Nurse", "ShowNurse", "Nurse")</li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#">Patient</a>
+                    <a href="#"><i class="fas fa-procedures"></i> Patient</a>
                     <ul>
                         <li>@Html.ActionLink("Register", "Save", "Patient")</li>
-                        <li>@Html.ActionLink("View Patient", "ViewPatient", "Patient")</li>
+                        <li>@Html.ActionLink("View Patient", "ViewPaitent", "Patient")</li>
 
                     </ul>
                 </li>
@@ -120,31 +123,22 @@
                     </div>
                 </a>
                 <p>
-                    Elias Hridoy<br>
+                    <i class="fa fa-user-secret"></i> Elias Hridoy<br>
                     email: <a href="#">eliaHridoy.cse@gmail.com</a>
                 </p>
             </div>
         </div>
     </div>
-<div class="content">
-
-
-    <p>Some Google icons:</p>
-    <i class="material-icons">cloud</i>
-    <i class="material-icons">favorite</i>
-    <i class="material-icons">attachment</i>
-    <i class="material-icons">computer</i>
-    <i class="material-icons">traffic</i>
-    <br><br>
-
-    <p>Styled Google icons (size, color, and shadow):</p>
-    <i class="material-icons" style="font-size:60px;color:lightblue;text-shadow:2px 2px 4px #000000;">person</i>
+    <div class="content">
 
 
 
-    <h2 class="text-success">@ViewBag.Title</h2>
+        <h2 class="text-success">@ViewBag.Title</h2>
 
-        <div align="center" >
+
+       
+
+        <div align="center" style="margin: 50px" >
             @RenderBody()
         </div>
 

@@ -34,16 +34,34 @@ nav ul li a {
 	display:inline-block;
 	padding:1em 3em;
 	text-decoration:none;
-	border-bottom:2px solid #fff;
+	/*border-bottom:2px solid #fff;*/
 	transition-property:all .2s linear 0s;
 	-moz-transition:all .2s linear 0s;
 	-webkit-transition:all .2s linear 0s;
 	-o-transition:all .2s linear 0s;
 	font-size:16px;
 }
+
 nav ul li a:hover {
 	color: #34B484;
 }
+/*/-------------------------------------*/
+/*styling open close button*/
+.navIcon {
+	display:inline;
+	position:absolute;
+	left: 50px;
+	top:6px;
+	z-index:999;
+	font-size:30px;
+	color-background:#fff
+}
+.navIcon a {
+	text-decoration:none;
+}
+
+/*/-------------------------------------*/
+
 /*styling open close button*/
 .button {
 	display:inline;
@@ -52,13 +70,13 @@ nav ul li a:hover {
 	top:6px;
 	z-index:999;
 	font-size:30px;
-	color-background:#fff
+	color-background:#07dcfe
 }
 .button a {
 	text-decoration:none;
 }
 .btn-open:after {
-	color:#333;
+	color:#00fa9a;
 	content:"\f0c9";
 	font-family:"FontAwesome";
 	transition-property:all .2s linear 0s;
@@ -70,7 +88,7 @@ nav ul li a:hover {
 	color:#34B484;
 }
 .btn-close:after {
-	color:#fff;
+	color:#ffffff;
 	content:"\f00d";
 	font-family:"FontAwesome";
 	transition-property:all .2s linear 0s;
@@ -79,7 +97,7 @@ nav ul li a:hover {
 	-o-transition:all .2s linear 0s;
 }
 .btn-close:hover:after {
-	color: #34B484;
+	color: #e11212;
 }
 /*overlay*/
 .overlay {
@@ -88,7 +106,7 @@ nav ul li a:hover {
 	top:0;
 	height:100%;
 	width:100%;
-	background:#333;
+	background:rgba(51, 51, 51, 0.82);
 	overflow:auto;
 	z-index:99;
 }

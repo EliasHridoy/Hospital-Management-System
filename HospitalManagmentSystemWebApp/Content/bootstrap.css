@@ -1407,33 +1407,42 @@ pre code {
 table {
   max-width: 100%;
   background-color: transparent;
+    color: #269abc;
 }
 
 th {
-  text-align: left;
+  text-align: center;
+}
+td {
+  text-align: center;
 }
 
 .table {
   width: 100%;
   margin-bottom: 20px;
+    color: #269abc;
+
 }
 
-.table thead > tr > th,
-.table tbody > tr > th,
-.table tfoot > tr > th,
-.table thead > tr > td,
-.table tbody > tr > td,
-.table tfoot > tr > td {
-  padding: 8px;
-  line-height: 1.428571429;
-  vertical-align: top;
-  border-top: 1px solid #dddddd;
-}
+    .table thead > tr > th,
+    .table tbody > tr > th,
+    .table tfoot > tr > th,
+    .table thead > tr > td,
+    .table tbody > tr > td,
+    .table tfoot > tr > td {
+        padding: 8px;
+        line-height: 1.428571429;
+        vertical-align: top;
+        border-top: 1px solid #33cc33;
+        text-align: center;
+        color: #269abc;
+    }
 
-.table thead > tr > th {
-  vertical-align: bottom;
-  border-bottom: 2px solid #dddddd;
-}
+    .table thead > tr > th {
+        vertical-align: bottom;
+        border-bottom: 2px solid #99ffcc;
+        color: #269abc;
+    }
 
 .table caption + thead tr:first-child th,
 .table colgroup + thead tr:first-child th,
@@ -1441,11 +1450,13 @@ th {
 .table caption + thead tr:first-child td,
 .table colgroup + thead tr:first-child td,
 .table thead:first-child tr:first-child td {
-  border-top: 0;
+  border-top: 1px;
 }
 
 .table tbody + tbody {
   border-top: 2px solid #dddddd;
+
+    color: #269abc;
 }
 
 .table .table {
