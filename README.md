@@ -6,4 +6,4 @@ Making Nurse and Receptionist duty schedule is more easy. Everything will be don
 Short look of this project:
 
 
-![GitHub Logo](#link)
+![GitHub Logo](https://drive.google.com/open?id=1wMzwn71ld0oM53dEXMoILePr-lYJ5z6W)
